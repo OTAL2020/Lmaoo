@@ -2,7 +2,7 @@
 {
     using Dapper;
     using Microsoft.Extensions.Configuration;
-    using Otal.lmaoo.Core.Entities.User;
+    using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces;
     using System;
     using System.Data;

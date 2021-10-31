@@ -1,4 +1,4 @@
-﻿namespace Otal.lmaoo.Core.Entities.User
+﻿namespace Otal.lmaoo.Core.Entities
 {
     public class User
     {
