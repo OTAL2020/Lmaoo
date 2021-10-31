@@ -1,3 +1,5 @@
+using System;
+
 namespace Otal.lmaoo.Core.Entities
 {
     public class Comment
