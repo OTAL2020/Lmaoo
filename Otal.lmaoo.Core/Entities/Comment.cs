@@ -1,7 +1,6 @@
-using System;
-
 namespace Otal.lmaoo.Core.Entities
 {
+    using System;
     public class Comment
     {
         public int CommentId { get; set; }
