@@ -1,6 +1,6 @@
 ﻿namespace Otal.lmaoo.Data.Interfaces
 {
-    using Otal.lmaoo.Core.Entities.User;
+    using Otal.lmaoo.Core.Entities;
 
     public interface IUsersDao
     {
