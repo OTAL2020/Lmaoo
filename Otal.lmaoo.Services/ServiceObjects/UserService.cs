@@ -1,6 +1,6 @@
 ﻿namespace Otal.lmaoo.Services.ServiceObjects
 {
-    using Otal.lmaoo.Core.Entities.User;
+    using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces;
     using Otal.lmaoo.Services.Interfaces;
 
@@ -16,6 +16,11 @@
         public User Get(int id)
         {
             return _dao.Get(id);
+        }
+
+        User IUserService.Get(int id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
