@@ -10,7 +10,7 @@ namespace Otal.lmaoo.Core.Entities
         public int Assignee { get; set; }
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
-        public string Progess { get; set; }
+        public string Progress { get; set; }
         public DateTime Deadline { get; set; }
     }
 }
