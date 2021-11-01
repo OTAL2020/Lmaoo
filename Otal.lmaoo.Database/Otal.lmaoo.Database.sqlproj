@@ -66,5 +66,6 @@
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Stored Procedures\User_GetById.sql" />
+    <Build Include="dbo\Tables\Project.sql" />
   </ItemGroup>
 </Project>
