@@ -27,9 +27,10 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "launchUrl": "http://{ServiceHost}:{ServicePort}",
+      "httpPort": 1234,
       "publishAllPorts": true,
-      "useSSL": true
+      "useSSL": false
     }
   }
 }
