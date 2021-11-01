@@ -1,6 +1,7 @@
 namespace Otal.lmaoo.Core.Entities
 {
     using System;
+
     public class Ticket
     {
         public int TicketId { get; set; }
