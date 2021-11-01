@@ -7,5 +7,5 @@
   [Active]		BIT			NOT NULL	DEFAULT	'1',
 
   CONSTRAINT [PK_ProjectId]		 PRIMARY KEY ([ProjectId]),
-  CONSTRAINT [FK_Project_UserId] FOREIGN KEY ([owner])		REFERENCES [dbo].[User] ([UserId])
+  CONSTRAINT [FK_Project_UserId] FOREIGN KEY ([Owner])		REFERENCES [dbo].[User] ([UserId])
 )
