@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Otal.lmaoo.Data;
-using Otal.lmaoo.Services;
-
 namespace Otal.lmaoo.Web
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Otal.lmaoo.Data;
+    using Otal.lmaoo.Services;
+
     public class Startup
     {
         public IConfiguration _configuration { get; }
