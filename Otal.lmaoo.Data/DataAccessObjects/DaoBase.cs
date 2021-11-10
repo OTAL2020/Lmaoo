@@ -16,7 +16,7 @@
         {
             get
             {
-                var connectionString = _configuration.GetConnectionString("DefaultConnection");
+                var connectionString = string.Format(_configuration.GetConnectionString("DefaultConnection"), _configuration["DB_PASSWORD"]);
                 return new SqlConnection(connectionString);
             }
         }
