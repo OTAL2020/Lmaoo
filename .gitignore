@@ -458,3 +458,6 @@ $RECYCLE.BIN/
 
 ## Lib Folder (They appear on Build)
 Otal.lmaoo.Web/wwwroot/lib/*
+
+## Any Mounted Volumes in Docker Compose
+db_data/*
