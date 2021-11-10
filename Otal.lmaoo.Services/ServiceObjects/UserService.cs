@@ -17,10 +17,5 @@
         {
             return _dao.Get(id);
         }
-
-        User IUserService.Get(int id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
