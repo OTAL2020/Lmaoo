@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Otal.lmaoo.Services.Interfaces;
+using Otal.lmaoo.Web.ViewModels;
 
 namespace Otal.lmaoo.Web.Controllers
 {
@@ -14,13 +15,20 @@ namespace Otal.lmaoo.Web.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            return View();
+            var model = new LoginViewModel();
+            return View(model);
         }
 
-        [HttpGet]
-        public IActionResult Users()
+        [HttpPost]
+        public IActionResult Login(LoginViewModel vm)
         {
-            return Json(_userService.Get(1));
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            return View("Login");
+
         }
     }
 }
