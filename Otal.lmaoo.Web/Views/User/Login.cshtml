@@ -1,7 +1,39 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model LoginViewModel
 
-<p>Hello World</p>
+<link rel="stylesheet" href="~/css/login.css"/>
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img id="otal_logo" src="~/img/otal_light.png">
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="card-body">
+                        <h2 class="header">Member login</h2>
+                        <form method='post' asp-action="login">
+                            <div class="form-group">
+                                <input type="text" class="form-control" asp-for="Username" name="Username" placeholder="Username">
+                                <span asp-validation-for="Username"></span>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <input type="password" class="form-control" asp-for="Password" name="Password" placeholder="Password">
+                                <span asp-validation-for="Password"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+
+                            <div class="form-group mt-3">
+                                <a class="register" href="/register">Not Registered? Click here!</a>
+                            </div>
+
+                        </form>
+                        <!-- <a href="/github/authorize/login" class="github"><i class="fab fa-github"></i> Sign in with Github</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="~/js/login.js"></script>
