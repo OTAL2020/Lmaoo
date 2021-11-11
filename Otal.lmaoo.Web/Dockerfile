@@ -28,4 +28,4 @@ RUN dotnet publish "Otal.lmaoo.Web.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Otal.lmaoo.Web.dll"]
+ENTRYPOINT ["dotnet", "watch", "run"]
