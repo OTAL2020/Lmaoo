@@ -28,7 +28,6 @@ namespace Otal.lmaoo.Web.Controllers
             }
 
             return View("Login");
-
         }
     }
 }

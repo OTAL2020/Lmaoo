@@ -5,10 +5,10 @@
     public class LoginViewModel
     {
         [Display(Name = "User Name")]
-        [Required(ErrorMessage = "Username is required Lewis!")]
-        public string Username;
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
-        public string Password;
+        public string Password { get; set; }
     }
 }
