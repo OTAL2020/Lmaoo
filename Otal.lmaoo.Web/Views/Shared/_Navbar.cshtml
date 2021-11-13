@@ -17,6 +17,50 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
                 </li>
+                <li>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg">
+
+    <div class="container">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+            <?php Render::SearchBar($_SESSION['userLoggedIn'] ?? null); ?>
+
+            <ul class="nav navbar-nav ml-auto mr-5">
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> 
+                </li>
+                <?php Render::ProjectsInNavBar($_SESSION['userLoggedIn'] ?? null); ?>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+
+                    <div class="dropdown-menu">
+                        @if(User == null)
+                        {
+                            <a class="dropdown-item text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                            <a class="dropdown-item text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+                        }
+                        else
+                        {
+                            <a class='dropdown-item' asp-area="" asp-controller="User" asp-action="Profile">Edit Account</a>
+                            <a class="dropdown-item text-dark" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
+                            //if ($userLoggedIn->level > 1) echo "<a class='dropdown-item' id='managerNav' href='/manager'>Manager</a>"; 
+                            //if($userLoggedIn->level > 3) echo "<a class='dropdown-item' id='adminNav' href='/admin'>Admin</a>";
+                        }
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
