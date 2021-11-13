@@ -7,5 +7,7 @@
         User Get(int id);
 
         User GetByUsername(string username);
+
+        void RegisterUser(User user);
     }
 }

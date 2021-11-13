@@ -12,8 +12,10 @@
                     <div class="card-body">
                         <h2 class="header">Member login</h2>
                         <form method='post' asp-action="login">
+                            <input type="hidden" asp-for="ReturnUrl" />
+
                             <div class="form-group">
-                                <input type="text" class="form-control" asp-for="Username" placeholder="Username">
+                                <input type="text" class="form-control" asp-for="Username" placeholder="Username" autofocus>
                                 <span asp-validation-for="Username"></span>
                             </div>
 
@@ -25,7 +27,7 @@
                             <button type="submit" class="btn btn-success btn-block">Login</button>
 
                             <div class="form-group mt-3">
-                                <a class="register" href="/register">Not Registered? Click here!</a>
+                                <a asp-action="Register">Not Registered? Click here!</a>
                             </div>
 
                         </form>

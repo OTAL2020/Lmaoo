@@ -4,6 +4,12 @@ namespace Otal.lmaoo.Services.Interfaces
 {
     public interface IUserService
     {
-        public User Get(int id);
+        User Get(int id);
+
+        User GetByUsername(string username);
+
+        User GetByUsernameAndPassword(string username, string password);
+
+        void RegisterUser(User user);
     }
 }

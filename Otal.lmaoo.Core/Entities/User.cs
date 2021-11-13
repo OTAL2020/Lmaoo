@@ -1,4 +1,6 @@
-﻿namespace Otal.lmaoo.Core.Entities
+﻿using Otal.lmaoo.Core.Enums;
+
+namespace Otal.lmaoo.Core.Entities
 {
     public class User
     {
@@ -7,7 +9,7 @@
         public string Password { get; set; }
         public string Forename { get; set; }
         public string Surname { get; set; }
-        public int Level { get; set; }
+        public UserRole Level { get; set; }
         public bool IsActive { get; set; }
     }
 }
