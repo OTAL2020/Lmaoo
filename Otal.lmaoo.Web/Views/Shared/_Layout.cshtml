@@ -1,5 +1,6 @@
 ﻿@{
     var error = TempData["Error"] as string;
+    var message = TempData["Message"] as string;
 }
 
 <!DOCTYPE html>
@@ -23,6 +24,12 @@
     {
         <div class="alert alert-warning" role="alert">@error</div>
     }
+
+    @if (!string.IsNullOrEmpty(message))
+    {
+        <div class="alert alert-success" role="alert">@message</div>
+    }
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
