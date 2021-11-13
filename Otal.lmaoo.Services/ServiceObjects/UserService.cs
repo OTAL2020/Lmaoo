@@ -18,6 +18,11 @@
             return _dao.Get(id);
         }
 
+        public User GetByUsername(string username)
+        {
+            return _dao.GetByUsername(username);
+        }
+
         public User GetByUsernameAndPassword(string username, string password)
         {
             var user = _dao.GetByUsername(username);
@@ -28,6 +33,10 @@
             }
 
             return user;
+        }
+        public void RegisterUser(User user)
+        {
+            _dao.RegisterUser(user);
         }
     }
 }

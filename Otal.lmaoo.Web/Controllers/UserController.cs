@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Otal.lmaoo.Core.Entities;
+using Otal.lmaoo.Core.Enums;
 using Otal.lmaoo.Services.Interfaces;
 using Otal.lmaoo.Web.ViewModels;
 using System.Collections.Generic;
@@ -66,6 +68,45 @@ namespace Otal.lmaoo.Web.Controllers
             return Redirect(vm.ReturnUrl);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            RegisterViewModel vm = new RegisterViewModel();
+            return View(vm);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Register(RegisterViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            var user = _userService.GetByUsername(vm.Username);
+            
+            if (user != null)
+            {
+                TempData["Error"] = "Username already exists";
+                return View(vm);
+            }
+
+            var newUser = new User
+            {
+                Forename = vm.Forename,
+                Surname = vm.Surname,
+                Username = vm.Username,
+                Password = BCrypt.Net.BCrypt.HashPassword(vm.Password),
+            };
+
+            _userService.RegisterUser(newUser);
+            TempData["Message"] = "Registration Successful";
+            return View("Login");
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
