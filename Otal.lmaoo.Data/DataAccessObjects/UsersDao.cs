@@ -25,7 +25,10 @@
 
         public User GetByUsername(string username)
         {
-            throw new NotImplementedException();
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<User>("[dbo].[User_GetByUsername]", new { Username = username }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
         }
     }
 }
