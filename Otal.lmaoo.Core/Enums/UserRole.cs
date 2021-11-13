@@ -13,5 +13,7 @@ namespace Otal.lmaoo.Core.Enums
         Manager = 2,
 
         Admin = 3,
+
+        SuperAdmin = 4,
     }
 }
