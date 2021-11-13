@@ -17,5 +17,17 @@
         {
             return _dao.Get(id);
         }
+
+        public User GetByUsernameAndPassword(string username, string password)
+        {
+            var user = _dao.GetByUsername(username);
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                return null;
+            }
+
+            return user;
+        }
     }
 }
