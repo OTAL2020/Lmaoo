@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var error = TempData["Error"] as string;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -15,6 +19,10 @@
     <header>
         <partial name="_Navbar" />
     </header>
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <div class="alert alert-warning" role="alert">@error</div>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
