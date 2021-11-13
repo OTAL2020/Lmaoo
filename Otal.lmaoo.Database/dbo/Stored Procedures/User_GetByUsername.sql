@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[User_GetByUsername]
-	@Username VARCHAR
+	@Username NVARCHAR(15)
 AS
 	SET NOCOUNT ON
 
