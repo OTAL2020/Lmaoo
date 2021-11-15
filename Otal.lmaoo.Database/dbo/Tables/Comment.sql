@@ -1,13 +1,13 @@
-﻿CREATE TABLE [dbo].[Comment] 
+﻿CREATE TABLE [dbo].[Comment]
 (
-  [commentId]		int			 NOT NULL	IDENTITY,
-  [commentContent]  varchar(255) NOT NULL,
-  [commentCreated]  datetime2	 NOT NULL	DEFAULT GETDATE(),
-  [ticketId]		int DEFAULT  NULL,
-  [userId]			int DEFAULT  NULL,
+  [CommentId]		 int			NOT NULL	IDENTITY(1,1),
+  [CommentContent]	 varchar(255)   NOT NULL,
+  [CommentCreated]   timestamp		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+  [TicketId]		 int DEFAULT	NULL,
+  [UserId]			 int DEFAULT	NULL,
 
   PRIMARY KEY ([commentId]),
-  
-  CONSTRAINT [FK_TicketId]  FOREIGN KEY ([TicketId])	REFERENCES [dbo].[Ticket] ([ticketId]),
-  CONSTRAINT [FK_UserId]	FOREIGN KEY ([UserId])		REFERENCES [dbo].[User]  ([userId])
-)
+
+  CONSTRAINT [PK_TicketId]	FOREIGN KEY ([ticketId])	REFERENCES [dbo].[Ticket] ([TicketId]),
+  CONSTRAINT [FK_UserId]	FOREIGN KEY ([UserId])		REFERENCES [dbo].[User] ([userId])
+);
