@@ -7,6 +7,6 @@
 
   PRIMARY KEY ([projectAccessId]),
 
-  CONSTRAINT [FK_ProjectId]		FOREIGN KEY ([ProjectId])	REFERENCES [dbo].[Project] ([projectId]),
-  CONSTRAINT [FK_UserId]		FOREIGN KEY ([userId])		REFERENCES [dbo].[User] ([UserId])
+  CONSTRAINT [FK_ProjectAccess_ProjectId]	FOREIGN KEY ([ProjectId])	REFERENCES [dbo].[Project] ([projectId]),
+  CONSTRAINT [FK_ProjectAccess_UserId]		FOREIGN KEY ([userId])		REFERENCES [dbo].[User] ([UserId])
 )
