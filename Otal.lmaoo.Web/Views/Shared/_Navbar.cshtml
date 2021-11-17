@@ -1,67 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using System.Security.Claims
+@using Otal.lmaoo.Core.Enums
+@using Otal.lmaoo.Core.Extensions
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Otal lmaoo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                </li>
-                <li>
-                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-                </li>
-            </ul>
-        </div>
+  <div class="container">
+    <a class="navbar-brand" href="#">OTAL Lmaoo</a>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              @if (!User.Identity.IsAuthenticated)
+              {
+                <li><a class="dropdown-item text-dark" asp-controller="User" asp-action="Login">Login</a></li>
+                <li><a class="dropdown-item text-dark" asp-controller="User" asp-action="Register">Register</a></li>
+              }
+              else
+              {
+                if(User.Identity.GetRoleAsInteger() > 1)
+                { 
+                    <li><a class='dropdown-item' asp-controller="Manager" asp-action="Index">Manager</a></li>
+                }
+
+                if(User.Identity.GetRoleAsInteger() > 2) 
+                {
+                    <li><a class='dropdown-item' asp-controller="Admin" asp-action="Index">Admin</a></li>
+                }
+                <a class="dropdown-item" asp-controller="User" asp-action="Profile">Edit Account</a>
+                <a class="dropdown-item" asp-controller="User" asp-action="Logout">Logout</a>
+              }
+          </ul>
+        </li>
+      </ul>
     </div>
-</nav>
-
-<nav class="navbar navbar-expand-lg">
-
-    <div class="container">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
-            <?php Render::SearchBar($_SESSION['userLoggedIn'] ?? null); ?>
-
-            <ul class="nav navbar-nav ml-auto mr-5">
-
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> 
-                </li>
-                <?php Render::ProjectsInNavBar($_SESSION['userLoggedIn'] ?? null); ?>
-
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
-
-                    <div class="dropdown-menu">
-                        @if(User == null)
-                        {
-                            <a class="dropdown-item text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                            <a class="dropdown-item text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-                        }
-                        else
-                        {
-                            <a class='dropdown-item' asp-area="" asp-controller="User" asp-action="Profile">Edit Account</a>
-                            <a class="dropdown-item text-dark" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
-                            //if ($userLoggedIn->level > 1) echo "<a class='dropdown-item' id='managerNav' href='/manager'>Manager</a>"; 
-                            //if($userLoggedIn->level > 3) echo "<a class='dropdown-item' id='adminNav' href='/admin'>Admin</a>";
-                        }
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+  </div>
 </nav>

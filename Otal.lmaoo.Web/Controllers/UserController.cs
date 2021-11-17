@@ -110,7 +110,8 @@ namespace Otal.lmaoo.Web.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return View("Login");
+            HttpContext.Response.Cookies.Delete(".AspNetCore.Cookies");
+            return RedirectToPage("/User/Login");
         }
     }
 }
