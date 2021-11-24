@@ -107,11 +107,18 @@ namespace Otal.lmaoo.Web.Controllers
         }
 
         [HttpGet]
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Response.Cookies.Delete(".AspNetCore.Cookies");
-            return RedirectToPage("/User/Login");
+            TempData["Message"] = "Logout Successful";
+            return RedirectToAction("Login", "User", new LoginViewModel() );
         }
     }
 }
