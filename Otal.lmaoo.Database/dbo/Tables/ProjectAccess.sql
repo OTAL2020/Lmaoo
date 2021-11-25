@@ -1,5 +1,4 @@
 ﻿CREATE TABLE [dbo].[ProjectAccess] (
-  [projectAccessId]		int			NOT NULL	IDENTITY(1,1),
   [projectAccessId]		INT			NOT NULL	IDENTITY(1,1),
   [userId]				INT			NOT NULL,
   [projectId]			INT			NOT NULL,
