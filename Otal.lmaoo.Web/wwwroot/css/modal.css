@@ -1,0 +1,55 @@
+.modal-header {
+	background: rgb(172, 205, 122);
+}
+
+.github-image {
+	border-radius: 25px;
+}
+
+.darkmode--activated .modal-header {
+	background-color: rgba(33, 33, 33, 0.99);
+	background: rgba(33, 33, 33, 0.99);
+	color: #fff;
+}
+
+.darkmode--activated .modal-content {
+	background-color: rgba(33, 33, 33, 0.99);
+	background: rgba(33, 33, 33, 0.99);
+}
+
+.darkmode--activated .modal-body input {
+	background-color: rgba(33, 33, 33, 0.99);
+	color: #fff;
+}
+
+.darkmode--activated .modal-body select {
+	background-color: rgba(33, 33, 33, 0.99);
+	color: #fff;
+}
+
+.modal-body > select > option {
+	background-color: rgba(33, 33, 33, 0.99);
+	color: #fff;
+}
+
+.darkmode--activated .modal-body button {
+	background-color: rgba(33, 33, 33, 0.99);
+	color: #fff;
+}
+
+.darkmode--activated label {
+	color: #fff;
+}
+
+.darkmode--activated .custom-file-label {
+	background-color: rgba(33, 33, 33, 0.99);
+	color: #fff;
+}
+
+.darkmode--activated .modal-backdrop {
+    opacity:0.95;
+}
+
+.darkmode--activated .github-info {
+	color: #fff;
+}
