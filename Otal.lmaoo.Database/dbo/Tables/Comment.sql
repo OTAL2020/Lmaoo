@@ -8,6 +8,6 @@
 
   PRIMARY KEY ([commentId]),
 
-  CONSTRAINT [PK_Comment_TicketId]	FOREIGN KEY ([ticketId])	REFERENCES [dbo].[Ticket] ([TicketId]),
+  CONSTRAINT [PK_Comment_TicketId]	FOREIGN KEY ([TicketId])	REFERENCES [dbo].[Ticket] ([TicketId]),
   CONSTRAINT [FK_Comment_UserId]	FOREIGN KEY ([UserId])		REFERENCES [dbo].[User] ([userId])
 );
