@@ -5,10 +5,10 @@
   [FeatureId]	int				NOT NULL,
   [ReporterKey] int				DEFAULT		NULL,
   [AssigneeKey] int				DEFAULT		NULL,
-  [deadline]	timestamp		NULL DEFAULT NULL,
   [Created]		datetime		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
   [Updated]		datetime		NOT NULL,
   [Progress]	varchar(20)		NOT NULL	DEFAULT 'Open',
+  [Deadline]	datetime		NULL DEFAULT NULL,
   PRIMARY KEY (TicketId),
 
   CONSTRAINT [FK_Ticket_AssigneeKey]	FOREIGN KEY ([Assigneekey])		REFERENCES [dbo].[User] ([userId]),
