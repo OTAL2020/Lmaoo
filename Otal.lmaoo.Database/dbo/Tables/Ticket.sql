@@ -1,14 +1,14 @@
 ﻿CREATE TABLE [dbo].[Ticket]
 (
-  [TicketId]	int				NOT NULL	IDENTITY(1,1),
-  [Summary]		varchar(50)		NOT NULL,
-  [FeatureId]	int				NOT NULL,
-  [ReporterKey] int				DEFAULT		NULL,
-  [AssigneeKey] int				DEFAULT		NULL,
-  [Created]		datetime		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
-  [Updated]		datetime		NOT NULL,
-  [Progress]	varchar(20)		NOT NULL	DEFAULT 'Open',
-  [Deadline]	datetime		NULL DEFAULT NULL,
+  [TicketId]	INT				NOT NULL	IDENTITY(1,1),
+  [Summary]		VARCHAR(50)		NOT NULL,
+  [FeatureId]	INT				NOT NULL,
+  [ReporterKey] INT				DEFAULT		NULL,
+  [AssigneeKey] INT				DEFAULT		NULL,
+  [Created]		DATETIME		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+  [Updated]		DATETIME		NOT NULL,
+  [Progress]	VARCHAR(20)		NOT NULL	DEFAULT 'Open',
+  [Deadline]	DATETIME		NULL DEFAULT NULL,
   PRIMARY KEY (TicketId),
 
   CONSTRAINT [FK_Ticket_AssigneeKey]	FOREIGN KEY ([Assigneekey])		REFERENCES [dbo].[User] ([userId]),

@@ -1,10 +1,10 @@
 ﻿CREATE TABLE [dbo].[Comment]
 (
-  [CommentId]		 int			NOT NULL	IDENTITY(1,1),
-  [CommentContent]	 varchar(255)   NOT NULL,
-  [CommentCreated]   datetime		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
-  [TicketId]		 int			DEFAULT		NULL,
-  [UserId]			 int			DEFAULT		NULL,
+  [CommentId]		 INT			NOT NULL	IDENTITY(1,1),
+  [CommentContent]	 VARCHAR(255)   NOT NULL,
+  [CommentCreated]   DATETIME		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+  [TicketId]		 INT			DEFAULT		NULL,
+  [UserId]			 INT			DEFAULT		NULL,
 
   PRIMARY KEY ([commentId]),
 
