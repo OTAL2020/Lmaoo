@@ -2,9 +2,9 @@
 (
   [CommentId]		 int			NOT NULL	IDENTITY(1,1),
   [CommentContent]	 varchar(255)   NOT NULL,
-  [CommentCreated]   timestamp		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
   [TicketId]		 int DEFAULT	NULL,
   [UserId]			 int DEFAULT	NULL,
+  [CommentCreated]   datetime		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY ([commentId]),
 
