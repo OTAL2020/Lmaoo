@@ -7,7 +7,6 @@
   [UserId]			 INT			DEFAULT		NULL,
 
   CONSTRAINT [PK_Comment_CommentId]	PRIMARY KEY ([CommentId]),
-
   CONSTRAINT [FK_Comment_TicketId]	FOREIGN KEY ([TicketId])	REFERENCES [dbo].[Ticket] ([TicketId]),
   CONSTRAINT [FK_Comment_UserId]	FOREIGN KEY ([UserId])		REFERENCES [dbo].[User] ([userId])
 );
