@@ -12,7 +12,7 @@
 
   CONSTRAINT [PK_Ticket_TicketId]	PRIMARY KEY (TicketId),
 
-  CONSTRAINT [FK_Ticket_AssigneeKey]	FOREIGN KEY ([Assigneekey])		REFERENCES [dbo].[User] ([userId]),
-  CONSTRAINT [FK_Ticket_FeatureKey]		FOREIGN KEY ([featureId])		REFERENCES [dbo].[Feature] ([featureId]),
-  CONSTRAINT [FK_Ticket_ReporterKey]	FOREIGN KEY ([ReporterKey])		REFERENCES [dbo].[User] ([userId])
+  CONSTRAINT [FK_Ticket_AssigneeKey] FOREIGN KEY ([Assigneekey]) REFERENCES [dbo].[User] ([userId]),
+  CONSTRAINT [FK_Ticket_FeatureKey]	FOREIGN KEY ([featureId]) REFERENCES [dbo].[Feature] ([featureId]),
+  CONSTRAINT [FK_Ticket_ReporterKey] FOREIGN KEY ([ReporterKey]) REFERENCES [dbo].[User] ([userId])
 )
