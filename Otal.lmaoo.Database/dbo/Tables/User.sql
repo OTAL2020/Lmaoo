@@ -9,5 +9,5 @@
   [IsActive]	BIT				NOT NULL	DEFAULT '1',
   [Picture]		VARCHAR(100)	NOT NULL	DEFAULT '~/img/avatar.jpg'
 
-  CONSTRAINT [PK_UserId]		PRIMARY KEY ([UserId])
+  CONSTRAINT [PK_User_UserId]	PRIMARY KEY ([UserId])
 );
