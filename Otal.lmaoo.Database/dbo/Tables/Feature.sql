@@ -5,6 +5,6 @@
   [ProjectId]	 INT	NOT NULL,
   [Active]		 INT	DEFAULT '1',
 
-  PRIMARY KEY ([FeatureId]),
+  CONSTRAINT [PK_Feature_FeatureId]		PRIMARY KEY ([FeatureId]),
   CONSTRAINT [FK_Feature_ProjectId]		FOREIGN KEY ([ProjectId])	REFERENCES [dbo].[Project] ([projectId])
 )
