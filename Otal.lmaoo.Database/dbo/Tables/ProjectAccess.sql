@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[ProjectAccess] (
-  [projectAccessId]		INT			NOT NULL	IDENTITY(1,1),
-  [userId]				INT			NOT NULL,
-  [projectId]			INT			NOT NULL,
-  [managerAccess]		BIT			NOT NULL	DEFAULT '0',
+  [ProjectAccessId]		INT			NOT NULL	IDENTITY(1,1),
+  [UserId]				INT			NOT NULL,
+  [ProjectId]			INT			NOT NULL,
+  [ManagerAccess]		BIT			NOT NULL	DEFAULT '0',
 
   CONSTRAINT [PK_ProjectAccess_ProjectAccessId] PRIMARY KEY ([ProjectAccessId]),
 
