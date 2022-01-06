@@ -31,6 +31,14 @@
             }
         }
 
+        public User GetByActive(int IsActive)
+        {
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<User>("[dbo].[User_GetByactive]", new { Active = IsActive }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+        }
+
         public void RegisterUser(User user)
         {
             using (var con = NewSqlConnection)
