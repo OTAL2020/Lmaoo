@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Otal.lmaoo.Services.Interfaces;
-using Otal.lmaoo.Web.ViewModels;
-
-namespace Otal.lmaoo.Web.Controllers
+﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+
     public class AdminController : BaseController
     {
         private readonly IAdminService _adminService;

@@ -2,9 +2,9 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
-    public class ManagerController : BaseController
+    public class TicketController : BaseController
     {
-        public ManagerController()
+        public TicketController()
         {
         }
 

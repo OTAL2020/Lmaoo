@@ -1,17 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Otal.lmaoo.Web.ViewModels;
-using System.Diagnostics;
-
-namespace Otal.lmaoo.Web.Controllers
+﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Otal.lmaoo.Web.ViewModels;
+    using System.Diagnostics;
+
     public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
         }
 
         [HttpGet]
