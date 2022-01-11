@@ -38,11 +38,11 @@ namespace Otal.lmaoo.Web.Controllers
 
             if (active == "true")
             {
-                _adminService.GetByIsActive(1);
+                _adminService.GetByActive(1);
             }
             else
             {
-                _adminService.GetByIsActive(0);
+                _adminService.GetByActive(0);
             }
             return View(vm);
         }

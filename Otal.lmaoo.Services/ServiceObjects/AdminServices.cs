@@ -5,27 +5,27 @@
     using Otal.lmaoo.Services.Interfaces;
     public class AdminService : IAdminService
     {
-        protected readonly IAdminDao _dao;
+        protected readonly IUsersDao _userDao;
 
-        public AdminService(IAdminDao dao)
+        public AdminService(IUsersDao userDao)
         {
-            _dao = dao;
+            _userDao = userDao;
         }
 
-        public User GetByIsActive(int IsActive)
+        public User GetByActive(int IsActive)
         {
-            return _dao.GetByIsActive(IsActive);
+            return _userDao.GetByActive(IsActive);
         }
 
-        public User UpdateUser(string Username, string Forename, string Surname, int Level, bool IsActive)
+        public User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive)
         {
-            return _dao.UpdateUser(Username,Forename,Surname,Level,IsActive);
+            return _userDao.UpdateUser(Username, Forename, Surname, Level, IsActive);
         }
 
-        public User DeactivateUser(bool IsActive)
+        public User DeactivateUser(int IsActive)
         {
-            IsActive = false;
-            return _dao.DeactivateUser(IsActive);
+            IsActive = 0;
+            return _userDao.DeactivateUser(IsActive);
         }
     }
 }

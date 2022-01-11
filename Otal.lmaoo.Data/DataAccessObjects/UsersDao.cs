@@ -19,7 +19,8 @@
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_GetById]", new { UserId = id }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+                return con.Query<User>("[dbo].[User_GetById]", new { UserId = id }, 
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 
@@ -27,7 +28,8 @@
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_GetByUsername]", new { Username = username }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+                return con.Query<User>("[dbo].[User_GetByUsername]", new { Username = username }, 
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 
@@ -35,7 +37,8 @@
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_GetByactive]", new { Active = IsActive }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+                return con.Query<User>("[dbo].[User_GetByActive]", new { Active = IsActive }, 
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 
@@ -50,6 +53,24 @@
                     Username =  user.Username,
                     Password = user.Password
                 }, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive)
+        {
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<User>("[dbo].[User_UpdateUser]", new { Username, Forename, Surname, Level, IsActive }, 
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+        }
+
+        public User DeactivateUser(int IsActive)
+        {
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<User>("[dbo].[User_DeactivateUser]", new { IsActive }, 
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
     }

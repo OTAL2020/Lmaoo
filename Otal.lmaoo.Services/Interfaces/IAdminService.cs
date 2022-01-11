@@ -3,10 +3,10 @@
     using Otal.lmaoo.Core.Entities;
     public interface IAdminService
     {
-        User GetByIsActive(int id);
+        User GetByActive(int isActive);
 
-        User UpdateUser(string Username, string Forename, string Surname, int Level, bool IsActive);
+        User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive);
 
-        User DeactivateUser(bool IsActive);
+        User DeactivateUser(int IsActive);
     }
 }

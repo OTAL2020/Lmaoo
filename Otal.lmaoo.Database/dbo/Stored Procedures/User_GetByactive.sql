@@ -13,4 +13,4 @@ AS
 	FROM 
 	  [dbo].[User]
 	WHERE
-	  [UserId] = @IsActive
+	  [IsActive] = @IsActive
