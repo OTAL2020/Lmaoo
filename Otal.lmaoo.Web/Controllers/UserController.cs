@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Otal.lmaoo.Core.Entities;
-using Otal.lmaoo.Core.Enums;
-using Otal.lmaoo.Services.Interfaces;
-using Otal.lmaoo.Web.ViewModels;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-
-namespace Otal.lmaoo.Web.Controllers
+﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Otal.lmaoo.Core.Entities;
+    using Otal.lmaoo.Services.Interfaces;
+    using Otal.lmaoo.Web.ViewModels;
+    using System.Collections.Generic;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
@@ -89,8 +88,7 @@ namespace Otal.lmaoo.Web.Controllers
             
             if (user != null)
             {
-                TempData["Error"] = "Username already exists";
-                return View(vm);
+                return RedirectWithError("Username already exists", null, vm);
             }
 
             var newUser = new User
@@ -102,8 +100,7 @@ namespace Otal.lmaoo.Web.Controllers
             };
 
             _userService.RegisterUser(newUser);
-            TempData["Message"] = "Registration Successful";
-            return View("Login");
+            return RedirectWithMessage("Registration Successful", "Login", null);
         }
 
         [HttpGet]
@@ -117,8 +114,7 @@ namespace Otal.lmaoo.Web.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Response.Cookies.Delete(".AspNetCore.Cookies");
-            TempData["Message"] = "Logout Successful";
-            return RedirectToAction("Login", "User", new LoginViewModel() );
+            return RedirectWithMessageAction("Logout Successful", "Login", "User", new LoginViewModel());
         }
     }
 }
