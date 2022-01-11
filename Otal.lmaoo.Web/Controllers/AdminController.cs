@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Otal.lmaoo.Services.Interfaces;
 using Otal.lmaoo.Web.ViewModels;
@@ -16,10 +17,49 @@ namespace Otal.lmaoo.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Index()
+        public IActionResult Index(string returnUrl = "/admin/")
         {
-            return View();
+            var vm = new AdminViewModel
+            {
+                ReturnUrl = returnUrl
+            };
+            return View(vm);
         }
+
+        [HttpPost]
+        public IActionResult IsActiveSelect(AdminViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            var active = vm.IsActiveSelect;
+
+            if (active == "true")
+            {
+                _adminService.GetByIsActive(1);
+            }
+            else
+            {
+                _adminService.GetByIsActive(0);
+            }
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult DeactivateUser(AdminViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            var user = vm.UserId;
+            _adminService.DeactivateUser(user);
+            return View(vm);
+        }
+
 
         [HttpPost]
         public IActionResult getUserByIsActive(AdminViewModel vm)
@@ -29,6 +69,7 @@ namespace Otal.lmaoo.Web.Controllers
                 return View();
             }
 
+            return View();
 
         }
     }

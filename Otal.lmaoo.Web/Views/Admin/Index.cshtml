@@ -5,14 +5,18 @@
         <input id="adminSearchBar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     </form>
 
-    <select id="adminSelect" class="form-control w-auto">
-        <option value="n/a" selected disabled>Select</option>
-        <option value="true">Active</option>
+    <form method="post" asp-action="IsActiveSelect">
+        <select asp-for="IsActiveSelect" id="adminSelect" class="form-control w-auto">
+        <option value="true" selected>Active</option>
         <option value="false">Inactive</option>
-    </select>
+        </select>
+    </form>
 </div>
-<form method="post" asp-action="GetUserByIsActive">
-    <input type="text" asp-for="IsActiveSelect" id="activeUserToggle" hidden>
+
+    
+
+
+    @*<input type="text" asp-for="GetUserByIsActive" id="activeUserToggle" hidden>*@
     <div class="container pt-4" id="adminContainer">
        <table class="table table-hover" id="admin-table">
             <tr>
@@ -24,7 +28,6 @@
             </tr>
         </table>
     </div>
-</form>
 
 
 <!-- ADMIN MODAL -->
@@ -79,4 +82,7 @@
     </div>
 </div>
 
-@section scripts { <script src="../../js/admin.js"></script> }
+@section scripts 
+{
+    <script src="~/js/admin.js"></script> 
+}
