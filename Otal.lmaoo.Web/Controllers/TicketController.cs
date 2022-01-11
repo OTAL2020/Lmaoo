@@ -2,8 +2,12 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
-    public class AdminController : BaseController
+    public class TicketController : BaseController
     {
+        public TicketController()
+        {
+        }
+
         public IActionResult Index()
         {
             return View();
