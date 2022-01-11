@@ -1,6 +1,9 @@
 ﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using Otal.lmaoo.Services.Interfaces;
+    using Otal.lmaoo.Web.ViewModels;
 
     public class AdminController : BaseController
     {
