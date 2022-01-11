@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace Otal.lmaoo.Web.Extensions
+﻿namespace Otal.lmaoo.Web.Extensions
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.AspNetCore.Mvc.ViewEngines;
+    using Microsoft.AspNetCore.Mvc.ViewFeatures;
+    using System.IO;
+    using System.Threading.Tasks;
+
     public static class ControllerExtensions
     {
         public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model)

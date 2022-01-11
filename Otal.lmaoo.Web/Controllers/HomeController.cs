@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Otal.lmaoo.Web.ViewModels;
-using System.Diagnostics;
-
-namespace Otal.lmaoo.Web.Controllers
+﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Otal.lmaoo.Web.ViewModels;
+    using System.Diagnostics;
+
     public class HomeController : BaseController
     {
         public HomeController()

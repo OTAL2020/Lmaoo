@@ -25,8 +25,8 @@
         public IActionResult Login(string returnUrl = "/")
         {
             var vm = new LoginViewModel
-            { 
-                ReturnUrl = returnUrl 
+            {
+                ReturnUrl = returnUrl
             };
 
             return View(vm);
@@ -85,7 +85,7 @@
             }
 
             var user = _userService.GetByUsername(vm.Username);
-            
+
             if (user != null)
             {
                 return RedirectWithError("Username already exists", null, vm);

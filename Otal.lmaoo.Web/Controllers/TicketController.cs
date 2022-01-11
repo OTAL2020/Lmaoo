@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Otal.lmaoo.Web.Controllers
+﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+
     public class TicketController : BaseController
     {
         public TicketController()
