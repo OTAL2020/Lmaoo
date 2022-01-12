@@ -1,4 +1,4 @@
-﻿namespace Otal.lmaoo.Web.ViewModels
+﻿namespace Otal.lmaoo.Web.ViewModels.User
 {
     using System.ComponentModel.DataAnnotations;
 

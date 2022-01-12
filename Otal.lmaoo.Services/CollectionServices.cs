@@ -9,6 +9,7 @@
         public static void RegisterServices(IServiceCollection service)
         {
             service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IAdminService, AdminService>();
         }
     }
 }

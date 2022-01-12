@@ -8,6 +8,11 @@
 
         User GetByUsername(string username);
 
+        User GetByActive(int isActive);
+
+        User EditUserActiveStatus(int id, int IsActive);
+
         void RegisterUser(User user);
+        User UpdateUser(User user);
     }
 }
