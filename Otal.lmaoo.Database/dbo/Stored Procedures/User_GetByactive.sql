@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[User_GetByactive]
+﻿CREATE PROCEDURE [dbo].[User_GetByActive]
 	@IsActive INT
 AS
 	SET NOCOUNT ON
