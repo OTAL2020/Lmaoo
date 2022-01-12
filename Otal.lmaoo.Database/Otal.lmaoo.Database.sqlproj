@@ -76,6 +76,6 @@
     <Build Include="dbo\Stored Procedures\User_Register.sql" />
     <Build Include="dbo\Stored Procedures\User_GetByActive.sql" />
     <Build Include="dbo\Stored Procedures\User_UpdateUser.sql" />
-    <Build Include="dbo\Stored Procedures\User_DeactivateUser.sql" />
+    <Build Include="dbo\Stored Procedures\User_EditUserActiveStatus.sql" />
   </ItemGroup>
 </Project>
