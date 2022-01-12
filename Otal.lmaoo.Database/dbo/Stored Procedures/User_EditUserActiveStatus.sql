@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[User_DeactivateUser]
+﻿CREATE PROCEDURE [dbo].[User_Edit_isActive]
 	@UserId INT,
 	@IsActive SMALLINT
 AS
