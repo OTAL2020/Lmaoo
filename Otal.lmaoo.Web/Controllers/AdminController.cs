@@ -61,15 +61,16 @@
 
 
         [HttpPost]
-        public IActionResult getUserByIsActive(AdminViewModel vm)
+        public IActionResult EditUserActiveStatus(int Id, int Active)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
+            var UserId = Id;
+            _adminService.EditUserActiveStatus(UserId, Active);
             return View();
-
         }
     }
 }

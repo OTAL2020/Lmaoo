@@ -7,6 +7,6 @@
 
         User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive);
 
-        User DeactivateUser(int IsActive);
+        User EditUserActiveStatus(int userId, int Active);
     }
 }

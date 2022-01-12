@@ -22,10 +22,9 @@
             return _userDao.UpdateUser(Username, Forename, Surname, Level, IsActive);
         }
 
-        public User DeactivateUser(int IsActive)
+        public User EditUserActiveStatus(int userId, int active)
         {
-            IsActive = 0;
-            return _userDao.DeactivateUser(IsActive);
+            return _userDao.EditUserActiveStatus(userId, active);
         }
     }
 }

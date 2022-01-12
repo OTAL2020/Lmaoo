@@ -10,9 +10,7 @@
 
         User GetByActive(int isActive);
 
-        User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive);
-
-        User DeactivateUser(int IsActive);
+        User EditUserActiveStatus(int id, int IsActive);
 
         void RegisterUser(User user);
     }

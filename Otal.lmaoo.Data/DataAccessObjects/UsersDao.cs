@@ -65,11 +65,11 @@
             }
         }
 
-        public User DeactivateUser(int IsActive)
+        public User EditUserActiveStatus(int userId, int isActive)
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_DeactivateUser]", new { IsActive }, 
+                return con.Query<User>("[dbo].[User_EditUserActiveStatus]", new {userId, isActive },
                     commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
