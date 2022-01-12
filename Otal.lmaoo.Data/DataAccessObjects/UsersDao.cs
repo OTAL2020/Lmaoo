@@ -56,12 +56,18 @@
             }
         }
 
-        public User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive)
+        public User UpdateUser(User user)
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_UpdateUser]", new { Username, Forename, Surname, Level, IsActive }, 
-                    commandType: CommandType.StoredProcedure).SingleOrDefault();
+                return con.Query<User>("[dbo].[User_UpdateUser]", new {
+                    UserId = user.UserId,
+                    Username = user.Username,
+                    Forename = user.Forename,
+                    Surname = user.Surname,
+                    Level = user.Level,
+                    IsActive = user.IsActive 
+                }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 

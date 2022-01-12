@@ -17,9 +17,9 @@
             return _userDao.GetByActive(IsActive);
         }
 
-        public User UpdateUser(string Username, string Forename, string Surname, int Level, int IsActive)
+        public User UpdateUser(User user)
         {
-            return _userDao.UpdateUser(Username, Forename, Surname, Level, IsActive);
+            return _userDao.UpdateUser(user);
         }
 
         public User EditUserActiveStatus(int userId, int active)
