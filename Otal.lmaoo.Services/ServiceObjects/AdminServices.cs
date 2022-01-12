@@ -3,6 +3,7 @@
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces;
     using Otal.lmaoo.Services.Interfaces;
+
     public class AdminService : IAdminService
     {
         protected readonly IUsersDao _userDao;

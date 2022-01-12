@@ -5,15 +5,12 @@
         <input id="adminSearchBar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     </form>
 
-    <form method="post" asp-action="IsActiveSelect">
-        <select asp-for="IsActiveSelect" id="adminSelect" class="form-control w-auto">
-        <option value="true" selected>Active</option>
-        <option value="false">Inactive</option>
-        </select>
-    </form>
+    <select id="adminSelect" class="form-control w-auto">
+    <option value="true" selected>Active</option>
+    <option value="false">Inactive</option>
+    </select>
 </div>
 
-@*<input type="text" asp-for="GetUserByIsActive" id="activeUserToggle" hidden>*@
 <div class="container pt-4" id="adminContainer">
     <table class="table table-hover" id="admin-table">
         <tr>
