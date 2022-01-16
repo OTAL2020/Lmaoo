@@ -4,13 +4,13 @@ AS
 	SET NOCOUNT ON
 
 	SELECT
-	  [UserId],
-	  [Username],
-	  [Forename],
-	  [Surname],
-	  [Level],
-	  [IsActive]
+		[UserId],
+		[Username],
+		[Forename],
+		[Surname],
+		[Level],
+		[IsActive]
 	FROM 
-	  [dbo].[User]
+		[dbo].[User]
 	WHERE
-	  [IsActive] = @IsActive
+		[IsActive] = @IsActive

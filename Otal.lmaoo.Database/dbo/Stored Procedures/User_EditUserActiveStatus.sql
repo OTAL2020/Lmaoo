@@ -5,8 +5,8 @@ AS
 	SET NOCOUNT ON
 
 	UPDATE [User]
-	  SET [IsActive] = @IsActive
+		SET [IsActive] = @IsActive
 	FROM 
-	  [dbo].[User]
+		[dbo].[User]
 	WHERE
-	  [UserId] = @UserId
+		[UserId] = @UserId
