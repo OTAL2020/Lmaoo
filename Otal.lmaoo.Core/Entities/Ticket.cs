@@ -17,5 +17,6 @@ namespace Otal.lmaoo.Core.Entities
         public DateTime Updated { get; set; }
         public string Progress { get; set; }
         public DateTime Deadline { get; set; }
+        public bool Active { get; set; }
     }
 }

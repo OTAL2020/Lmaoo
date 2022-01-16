@@ -61,7 +61,7 @@
                     AssigneeId = ticket.AssigneeId,
                     Progress = ticket.Progress,
                     Deadline = ticket.Deadline,
-                    FeatureId = ticket.TicketId
+                    FeatureId = ticket.FeatureId
                 },
                     commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
