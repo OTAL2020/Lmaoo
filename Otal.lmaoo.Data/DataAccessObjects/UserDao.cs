@@ -16,6 +16,20 @@
             _configuration = configuration;
         }
 
+        public User Create(User user)
+        {
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<User>("[dbo].[User_Create]", new
+                {
+                    Forename = user.Forename,
+                    Surname = user.Surname,
+                    Username = user.Username,
+                    Password = user.Password
+                }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+        }
+
         public User GetById(int userId)
         {
             using (var con = NewSqlConnection)
@@ -34,7 +48,7 @@
             }
         }
 
-        public User GetByActive(int IsActive)
+        public User GetByActive(bool IsActive)
         {
             using (var con = NewSqlConnection)
             {
@@ -43,43 +57,25 @@
             }
         }
 
-        public void RegisterUser(User user)
-        {
-            using (var con = NewSqlConnection)
-            {
-                con.Query<User>("[dbo].[User_Register]", new
-                {
-                    Forename = user.Forename,
-                    Surname = user.Surname,
-                    Username = user.Username,
-                    Password = user.Password
-                }, commandType: CommandType.StoredProcedure);
-            }
-        }
-
-        public User UpdateUser(User user)
+        public User Update(User user, int userId)
         {
             using (var con = NewSqlConnection)
             {
                 return con.Query<User>("[dbo].[User_UpdateUser]", new
                 {
-                    UserId = user.UserId,
                     Username = user.Username,
                     Forename = user.Forename,
                     Surname = user.Surname,
                     Level = user.Level,
-                    IsActive = user.IsActive
+                    IsActive = user.IsActive,
+                    UserId = userId,
                 }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 
-        public User EditUserActiveStatus(int userId, int isActive)
+        public void Delete(int userId)
         {
-            using (var con = NewSqlConnection)
-            {
-                return con.Query<User>("[dbo].[User_EditUserActiveStatus]", new { userId, isActive },
-                    commandType: CommandType.StoredProcedure).SingleOrDefault();
-            }
+            throw new System.NotImplementedException();
         }
     }
 }
