@@ -13,19 +13,19 @@
             _userDao = userDao;
         }
 
-        public User GetByActive(int IsActive)
+        public User GetByActive(bool IsActive)
         {
             return _userDao.GetByActive(IsActive);
         }
 
         public User UpdateUser(User user)
         {
-            return _userDao.UpdateUser(user);
+            return _userDao.Update(user);
         }
 
-        public User EditUserActiveStatus(int userId, int active)
+        public User EditUser(User user)
         {
-            return _userDao.EditUserActiveStatus(userId, active);
+            return _userDao.Update(user);
         }
     }
 }

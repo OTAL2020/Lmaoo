@@ -19,18 +19,5 @@
         {
             return View();
         }
-
-        [HttpPost]
-        public IActionResult EditUserActiveStatus(int Id, int Active)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            var UserId = Id;
-            _adminService.EditUserActiveStatus(UserId, Active);
-            return View();
-        }
     }
 }
