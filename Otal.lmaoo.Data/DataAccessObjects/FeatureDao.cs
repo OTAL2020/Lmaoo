@@ -20,7 +20,15 @@
 
         public Feature Create(Feature feature)
         {
-            throw new System.NotImplementedException();
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<Feature>("[dbo].[Feature_Create]", new
+                {
+                    Name = feature.Name,
+                    ProjectId = feature.ProjectId
+                },
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
         }
 
         public Feature GetById(int featureId)
@@ -50,14 +58,27 @@
             }
         }
 
-        public Feature Update(Feature feature, int id)
+        public Feature Update(Feature feature)
         {
-            throw new System.NotImplementedException();
+            using (var con = NewSqlConnection)
+            {
+                return con.Query<Feature>("[dbo].[Feature_Update]", new
+                {
+                    Name = feature.Name,
+                    ProjectId = feature.ProjectId,
+                    Active = feature.Active,
+                    FeatureId = feature.FeatureId
+                },
+                    commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
         }
 
         public void Delete(int featureId)
         {
-            throw new System.NotImplementedException();
+            using (var con = NewSqlConnection)
+            {
+                con.Query<Feature>("[dbo].[Feature_Delete]", new { FeatureId = featureId }, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }
