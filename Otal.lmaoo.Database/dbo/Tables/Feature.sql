@@ -3,7 +3,7 @@
   [FeatureId]	 INT			NOT NULL	IDENTITY(1,1),
   [Name]		 VARCHAR(50)	NOT NULL,
   [ProjectId]	 INT			NOT NULL,
-  [Active]		 INT						DEFAULT '1',
+  [Active]		 BIT						DEFAULT 1,
 
   CONSTRAINT [PK_Feature_FeatureId]	PRIMARY KEY ([FeatureId]),
   CONSTRAINT [FK_Feature_ProjectId]	FOREIGN KEY ([ProjectId])	REFERENCES [dbo].[Project] ([projectId])

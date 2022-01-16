@@ -9,6 +9,7 @@
   [Updated]		DATETIME		NOT NULL,
   [Progress]	VARCHAR(20)		NOT NULL	DEFAULT		'Open',
   [Deadline]	DATETIME		NULL,
+  [Active]		BIT				NOT NULL	DEFAULT		1
 
   CONSTRAINT [PK_Ticket_TicketId]		PRIMARY KEY (TicketId),
   CONSTRAINT [FK_Ticket_AssigneeId]		FOREIGN KEY ([AssigneeId])		REFERENCES [dbo].[User] ([userId]),
