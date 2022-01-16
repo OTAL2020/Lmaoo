@@ -6,26 +6,26 @@
 
     public class UserService : IUserService
     {
-        protected readonly IUsersDao _dao;
+        protected readonly IUsersDao _userDao;
 
-        public UserService(IUsersDao dao)
+        public UserService(IUsersDao userDao)
         {
-            _dao = dao;
+            _userDao = userDao;
         }
 
-        public User Get(int id)
+        public User GetById(int id)
         {
-            return _dao.Get(id);
+            return _userDao.GetById(id);
         }
 
         public User GetByUsername(string username)
         {
-            return _dao.GetByUsername(username);
+            return _userDao.GetByUsername(username);
         }
 
         public User GetByUsernameAndPassword(string username, string password)
         {
-            var user = _dao.GetByUsername(username);
+            var user = _userDao.GetByUsername(username);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
@@ -34,9 +34,10 @@
 
             return user;
         }
+
         public void RegisterUser(User user)
         {
-            _dao.RegisterUser(user);
+            _userDao.RegisterUser(user);
         }
     }
 }

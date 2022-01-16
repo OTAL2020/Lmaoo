@@ -4,7 +4,7 @@
 
     public interface IUsersDao
     {
-        User Get(int id);
+        User GetById(int id);
 
         User GetByUsername(string username);
 

@@ -4,7 +4,7 @@ namespace Otal.lmaoo.Services.Interfaces
 {
     public interface IUserService
     {
-        User Get(int id);
+        User GetById(int id);
 
         User GetByUsername(string username);
 
