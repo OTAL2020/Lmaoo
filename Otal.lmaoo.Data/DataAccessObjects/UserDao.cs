@@ -10,8 +10,6 @@
 
     public class UserDao : DaoBase, IUserDao
     {
-        private new static IConfiguration _configuration;
-
         public UserDao(IConfiguration configuration) : base(configuration)
         {
             _configuration = configuration;

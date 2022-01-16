@@ -11,8 +11,6 @@
 
     public class FeatureDao : DaoBase, IFeatureDao
     {
-        private new readonly IConfiguration _configuration;
-
         public FeatureDao(IConfiguration configuration) : base(configuration)
         {
             _configuration = configuration;

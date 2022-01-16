@@ -11,8 +11,6 @@
 
     public class TicketDao : DaoBase, ITicketDao
     {
-        private new static IConfiguration _configuration;
-
         public TicketDao(IConfiguration configuration) : base(configuration)
         {
             _configuration = configuration;
