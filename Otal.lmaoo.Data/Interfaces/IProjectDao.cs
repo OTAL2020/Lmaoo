@@ -4,7 +4,7 @@
     using Otal.lmaoo.Data.Interfaces.Base;
     using System.Collections.Generic;
 
-    public interface IProjectDao : IDaoBase<Ticket>
+    public interface IProjectDao : IDaoBase<Project>
     {
         IEnumerable<Project> GetByOwnerId(int userId);
 

@@ -16,7 +16,7 @@ AS
         CONCAT(u2.forename, ' ' ,u2.surname) AS AssigneeName, 
         u2.[Username] AS AssigneeUsername
     FROM [dbo].[Ticket] t
-        INNER JOIN [dbo].[User] u ON u.userId = t.[ReporterId]
-        INNER JOIN [dbo].[User] u2 ON u2.userId = t.[AssigneeId]
+        INNER JOIN [dbo].[User] u ON u.[UserId] = t.[ReporterId]
+        INNER JOIN [dbo].[User] u2 ON u2.[UserId] = t.[AssigneeId]
     WHERE 
         t.[TicketId] = @TicketId
