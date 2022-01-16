@@ -7,11 +7,11 @@
     using System.Data;
     using System.Linq;
 
-    public class UsersDao : DaoBase, IUsersDao
+    public class UserDao : DaoBase, IUserDao
     {
         private new static IConfiguration _configuration;
 
-        public UsersDao(IConfiguration configuration) : base(configuration)
+        public UserDao(IConfiguration configuration) : base(configuration)
         {
             _configuration = configuration;
         }

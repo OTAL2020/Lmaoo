@@ -2,7 +2,7 @@
 {
     using Otal.lmaoo.Core.Entities;
 
-    public interface IUsersDao
+    public interface IUserDao
     {
         User GetById(int id);
 

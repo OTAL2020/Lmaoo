@@ -6,9 +6,9 @@
 
     public class UserService : IUserService
     {
-        protected readonly IUsersDao _userDao;
+        protected readonly IUserDao _userDao;
 
-        public UserService(IUsersDao userDao)
+        public UserService(IUserDao userDao)
         {
             _userDao = userDao;
         }

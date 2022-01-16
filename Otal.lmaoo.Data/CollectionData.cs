@@ -8,7 +8,7 @@
     {
         public static void RegisterDaos(IServiceCollection service)
         {
-            service.AddScoped<IUsersDao, UsersDao>();
+            service.AddScoped<IUserDao, UserDao>();
         }
     }
 }

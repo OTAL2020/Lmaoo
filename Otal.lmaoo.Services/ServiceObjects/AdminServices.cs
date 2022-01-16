@@ -6,9 +6,9 @@
 
     public class AdminService : IAdminService
     {
-        protected readonly IUsersDao _userDao;
+        protected readonly IUserDao _userDao;
 
-        public AdminService(IUsersDao userDao)
+        public AdminService(IUserDao userDao)
         {
             _userDao = userDao;
         }
