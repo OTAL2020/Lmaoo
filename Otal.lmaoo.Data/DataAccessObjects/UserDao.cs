@@ -58,7 +58,7 @@
             }
         }
 
-        public User Update(User user, int userId)
+        public User Update(User user)
         {
             using (var con = NewSqlConnection)
             {
@@ -69,7 +69,7 @@
                     Surname = user.Surname,
                     Level = user.Level,
                     IsActive = user.IsActive,
-                    UserId = userId,
+                    UserId = user.UserId,
                 }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }

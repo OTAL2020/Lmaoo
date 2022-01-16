@@ -6,7 +6,7 @@
 
         T GetById(int id);
 
-        T Update(T TObject, int id);
+        T Update(T TObject);
 
         void Delete(int id);
     }

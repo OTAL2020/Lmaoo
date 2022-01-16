@@ -31,7 +31,7 @@
             throw new NotImplementedException();
         }
 
-        public Ticket Update(Ticket ticket, int id)
+        public Ticket Update(Ticket ticket)
         {
             throw new NotImplementedException();
         }
