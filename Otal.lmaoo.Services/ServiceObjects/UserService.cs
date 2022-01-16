@@ -37,7 +37,7 @@
 
         public void RegisterUser(User user)
         {
-            _userDao.RegisterUser(user);
+            _userDao.Create(user);
         }
     }
 }
