@@ -3,7 +3,6 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Otal.lmaoo.Services.Interfaces;
-    using Otal.lmaoo.Web.ViewModels.Admin;
 
     public class AdminController : BaseController
     {
@@ -20,6 +19,7 @@
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult EditUserActiveStatus(int Id, int Active)
         {
