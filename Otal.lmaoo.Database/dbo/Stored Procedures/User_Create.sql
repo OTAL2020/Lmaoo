@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[User_Register]
+﻿CREATE PROCEDURE [dbo].[User_Create]
 	@Forename	as NVARCHAR(30),
 	@Surname	as NVARCHAR(30),
 	@Username	as NVARCHAR(15),

@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[User_GetByActive]
-	@IsActive INT
+	@IsActive BIT
 AS
 	SET NOCOUNT ON
 
