@@ -4,8 +4,7 @@
 AS
 	SET NOCOUNT ON
 
-    INSERT INTO 
-        [dbo].[Feature]
+    INSERT INTO [dbo].[Feature]
     (
         [Name],
         [ProjectId]
@@ -15,3 +14,5 @@ AS
         @Name,
         @ProjectId
     )
+
+    SELECT * from [dbo].[Feature] WHERE FeatureId = SCOPE_IDENTITY()

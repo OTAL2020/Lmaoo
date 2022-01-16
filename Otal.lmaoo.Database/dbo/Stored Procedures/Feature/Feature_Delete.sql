@@ -8,4 +8,4 @@ AS
     SET
         [Active] = 0
     WHERE
-        FeatureId = @FeatureId
+        [FeatureId] = @FeatureId

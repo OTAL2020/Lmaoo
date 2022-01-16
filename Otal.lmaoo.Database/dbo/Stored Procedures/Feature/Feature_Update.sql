@@ -13,4 +13,4 @@ AS
         [ProjectId] = @ProjectId,
         [Active] = @Active
     WHERE
-        FeatureId = @FeatureId
+        [FeatureId] = @FeatureId
