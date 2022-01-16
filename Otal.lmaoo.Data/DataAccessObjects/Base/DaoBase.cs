@@ -1,4 +1,4 @@
-﻿namespace Otal.lmaoo.Data.DataAccessObjects
+﻿namespace Otal.lmaoo.Data.DataAccessObjects.Base
 {
     using Microsoft.Extensions.Configuration;
     using System.Data.SqlClient;

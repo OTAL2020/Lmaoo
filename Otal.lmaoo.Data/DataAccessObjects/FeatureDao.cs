@@ -3,6 +3,7 @@
     using Dapper;
     using Microsoft.Extensions.Configuration;
     using Otal.lmaoo.Core.Entities;
+    using Otal.lmaoo.Data.DataAccessObjects.Base;
     using Otal.lmaoo.Data.Interfaces;
     using System.Collections.Generic;
     using System.Data;
@@ -15,6 +16,11 @@
         public FeatureDao(IConfiguration configuration) : base(configuration)
         {
             _configuration = configuration;
+        }
+
+        public Feature Create(Feature feature)
+        {
+            throw new System.NotImplementedException();
         }
 
         public Feature GetById(int featureId)
@@ -42,6 +48,16 @@
                 return con.Query<Feature>("[dbo].[Feature_GetInactiveByProjectId]", new { ProjectId = projectId },
                     commandType: CommandType.StoredProcedure);
             }
+        }
+
+        public Feature Update(Feature feature, int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(int featureId)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

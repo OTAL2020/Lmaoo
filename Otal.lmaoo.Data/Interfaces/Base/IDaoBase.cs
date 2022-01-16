@@ -1,4 +1,4 @@
-﻿namespace Otal.lmaoo.Data.Interfaces
+﻿namespace Otal.lmaoo.Data.Interfaces.Base
 {
     public interface IDaoBase<T>
     {
