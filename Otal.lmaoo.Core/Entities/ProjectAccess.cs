@@ -5,7 +5,6 @@ namespace Otal.lmaoo.Core.Entities
         public int ProjectAccessId { get; set; }
         public int UserId { get; set; }
         public int ProjectId { get; set; }
-        public bool AllowAccess { get; set; }
         public bool ManagerAccess { get; set; }
     }
 }
