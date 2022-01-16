@@ -1,12 +1,10 @@
-﻿using Otal.lmaoo.Core.Entities;
-using System.Collections.Generic;
-
-namespace Otal.lmaoo.Data.Interfaces
+﻿namespace Otal.lmaoo.Data.Interfaces
 {
-    public interface IFeatureDao
-    {
-        Feature GetById(int id);
+    using Otal.lmaoo.Core.Entities;
+    using System.Collections.Generic;
 
+    public interface IFeatureDao : IDaoBase<Feature>
+    {
         IEnumerable<Feature> GetActiveByProjectId(int projectId);
 
         IEnumerable<Feature> GetInactiveByProjectId(int projectId);
