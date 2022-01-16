@@ -60,22 +60,51 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures\User" />
+    <Folder Include="dbo\Stored Procedures\Ticket" />
+    <Folder Include="dbo\Stored Procedures\Feature" />
+    <Folder Include="dbo\Stored Procedures\Project" />
+    <Folder Include="dbo\Stored Procedures\Comment" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchemaCompare.scmp" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Stored Procedures\User_GetById.sql" />
     <Build Include="dbo\Tables\Project.sql" />
     <Build Include="dbo\Tables\Comment.sql" />
     <Build Include="dbo\Tables\Feature.sql" />
     <Build Include="dbo\Tables\ProjectAccess.sql" />
     <Build Include="dbo\Tables\Ticket.sql" />
-    <Build Include="dbo\Stored Procedures\User_GetByUsername.sql" />
-    <Build Include="dbo\Stored Procedures\User_Create.sql" />
-    <Build Include="dbo\Stored Procedures\User_GetByActive.sql" />
-    <Build Include="dbo\Stored Procedures\User_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Ticket_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\User\User_Create.sql" />
+    <Build Include="dbo\Stored Procedures\User\User_GetByActive.sql" />
+    <Build Include="dbo\Stored Procedures\User\User_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\User\User_GetByUsername.sql" />
+    <Build Include="dbo\Stored Procedures\User\User_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Ticket\Ticket_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Feature\Feature_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Feature\Feature_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Feature\Feature_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Feature\Feature_GetActiveByProjectId.sql" />
+    <Build Include="dbo\Stored Procedures\Feature\Feature_GetInactiveByProjectId.sql" />
+    <Build Include="dbo\Stored Procedures\Feature\Feature_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Ticket\Ticket_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Ticket\Ticket_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Ticket\Ticket_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Ticket\Ticket_GetByFeatureId.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_CreateAccess.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_GetByStandardAccess.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_GetByManagerAccess.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_GetByOwnerId.sql" />
+    <Build Include="dbo\Stored Procedures\Project\Project_DeleteAccess.sql" />
+    <Build Include="dbo\Stored Procedures\Comment\Comment_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Comment\Comment_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Comment\Comment_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Comment\Comment_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Comment\Comment_GetByTicketId.sql" />
   </ItemGroup>
 </Project>
