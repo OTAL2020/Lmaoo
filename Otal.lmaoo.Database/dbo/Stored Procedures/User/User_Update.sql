@@ -9,12 +9,12 @@ AS
 	SET NOCOUNT ON
 
 	UPDATE [User]
-	  SET [Username] = @Username,
-	  [Forename] = @Forename,
-	  [Surname] = @Surename,
-	  [Level] = @Level,
-	  [IsActive] = @IsActive
+		SET [Username] = @Username,
+		[Forename] = @Forename,
+		[Surname] = @Surename,
+		[Level] = @Level,
+		[IsActive] = @IsActive
 	FROM 
-	  [dbo].[User]
+		[dbo].[User]
 	WHERE
-	  [UserId] = @UserId
+		[UserId] = @UserId

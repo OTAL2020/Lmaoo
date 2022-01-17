@@ -4,10 +4,8 @@
 
     public interface IAdminService
     {
-        User GetByActive(int isActive);
+        User GetByActive(bool isActive);
 
         User UpdateUser(User user);
-
-        User EditUserActiveStatus(int userId, int Active);
     }
 }

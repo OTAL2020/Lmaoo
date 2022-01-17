@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Services.Interfaces;
-    using Otal.lmaoo.Web.ViewModels;
+    using Otal.lmaoo.Web.ViewModels.User;
     using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;

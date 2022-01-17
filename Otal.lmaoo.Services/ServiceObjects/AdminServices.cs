@@ -6,26 +6,26 @@
 
     public class AdminService : IAdminService
     {
-        protected readonly IUsersDao _userDao;
+        protected readonly IUserDao _userDao;
 
-        public AdminService(IUsersDao userDao)
+        public AdminService(IUserDao userDao)
         {
             _userDao = userDao;
         }
 
-        public User GetByActive(int IsActive)
+        public User GetByActive(bool IsActive)
         {
             return _userDao.GetByActive(IsActive);
         }
 
         public User UpdateUser(User user)
         {
-            return _userDao.UpdateUser(user);
+            return _userDao.Update(user);
         }
 
-        public User EditUserActiveStatus(int userId, int active)
+        public User EditUser(User user)
         {
-            return _userDao.EditUserActiveStatus(userId, active);
+            return _userDao.Update(user);
         }
     }
 }

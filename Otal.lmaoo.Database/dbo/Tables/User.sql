@@ -6,7 +6,7 @@
   [Forename]	NVARCHAR(30)	NOT NULL,
   [Surname]		NVARCHAR(30)	NOT NULL,
   [Level]		SMALLINT		NOT NULL	DEFAULT '1',
-  [IsActive]	BIT				NOT NULL	DEFAULT '1',
+  [IsActive]	BIT				NOT NULL	DEFAULT 1,
   [Picture]		VARCHAR(100)	NOT NULL	DEFAULT '~/img/avatar.jpg'
 
   CONSTRAINT [PK_User_UserId] PRIMARY KEY ([UserId])
