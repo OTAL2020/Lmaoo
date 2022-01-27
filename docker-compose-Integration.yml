@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+    db:
+        image: "mcr.microsoft.com/mssql/server:2019-latest"
+        environment:
+            SA_PASSWORD: "IntegrationTest123!"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "${DB_PORT}:1433"
+        env_file:
+            - .env.integration
+        volumes:
+            - ./:/src
+        command:
+            - /bin/bash
+            - -c
+            - |
+              /opt/mssql/bin/sqlservr & sleep 30
+              /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P IntegrationTest123! -i /src/Otal.lmaoo.Database/bin/Debug/Otal.lmaoo.Database_Create.sql
+              sleep infinity
+
+    test:
+        image: mcr.microsoft.com/dotnet/sdk:6.0
+        volumes:
+            - ./:/src
+        environment:
+            DB_DATABASE: Otal.lmaoo.Database
+            DB_PASSWORD: IntegrationTest123!
+        command:
+          - /bin/bash
+          - -c
+          - |
+            dotnet build /src/Otal.lmaoo.Database
+            dotnet build /src/Otal.lmaoo.Data.IntegrationTests
+            dotnet test /src/Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Data.IntegrationTests.csproj
+            sleep infinity
+        depends_on:
+            - db
+        links:
+            - db
