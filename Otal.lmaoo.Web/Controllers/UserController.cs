@@ -1,5 +1,6 @@
 ﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using BCrypt.Net;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.AspNetCore.Authorization;
@@ -96,7 +97,7 @@
                 Forename = vm.Forename,
                 Surname = vm.Surname,
                 Username = vm.Username,
-                Password = BCrypt.Net.BCrypt.HashPassword(vm.Password),
+                Password = BCrypt.HashPassword(vm.Password),
             };
 
             _userService.RegisterUser(newUser);
