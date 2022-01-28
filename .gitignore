@@ -461,3 +461,5 @@ Otal.lmaoo.Web/wwwroot/lib/*
 
 ## Any Mounted Volumes in Docker Compose
 db_data/*
+Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Database.dacpac
+Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Database.dll
