@@ -14,10 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7C1C37C-E821-4CEC-9E21-BD1AB92D9FBF}"
 	ProjectSection(SolutionItems) = preProject
 		.env = .env
-		.env.integration = .env.integration
 		.env.sample = .env.sample
 		.gitignore = .gitignore
-		Integration.Dockerfile = Integration.Dockerfile
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Services", "Otal.lmaoo.Services\Otal.lmaoo.Services.csproj", "{AA6D3202-FAFC-4FFA-9ED0-2BDA0040F319}"
