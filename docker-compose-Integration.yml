@@ -16,7 +16,7 @@ services:
             - /bin/bash
             - -c
             - |
-              /opt/mssql/bin/sqlservr & sleep 30
+              /opt/mssql/bin/sqlservr & sleep 10
               /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P IntegrationTest123! -i /src/Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Database_Create.sql
               sleep infinity
 
@@ -31,7 +31,6 @@ services:
           - /bin/bash
           - -c
           - |
-            dotnet build /src/Otal.lmaoo.Database
             dotnet build /src/Otal.lmaoo.Data.IntegrationTests
             dotnet test /src/Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Data.IntegrationTests.csproj
             sleep infinity
