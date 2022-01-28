@@ -62,6 +62,8 @@
             IsActive = false
         };
 
+        public string DataType() => "User";
+
         public string GetAllData()
         {
             var query = new Query("dbo.User")
