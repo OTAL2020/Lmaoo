@@ -64,62 +64,57 @@
 
         public string GetAllData()
         {
-            var query = new Query("Users")
+            var query = new Query("dbo.User")
                 .AsInsert(new string[]
                 {
-                    "UserId", "Forename", "Surname", "Username", "Password", "Level", "IsActive"
+                    "Forename", "Surname", "Username", "Password", "Level", "IsActive"
                 },
                 new[]
                 {
                     new object[]
                     {
-                        DeveloperUser.UserId,
                         DeveloperUser.Forename,
                         DeveloperUser.Surname,
                         DeveloperUser.Username,
                         DeveloperUser.Password,
                         (int)DeveloperUser.Level,
-                        DeveloperUser.IsActive
+                        DeveloperUser.IsActive ? 1 : 0
                     },
                     new object[]
                     {
-                        ManagerUser.UserId,
                         ManagerUser.Forename,
                         ManagerUser.Surname,
                         ManagerUser.Username,
                         ManagerUser.Password,
                         (int)ManagerUser.Level,
-                        ManagerUser.IsActive
+                        ManagerUser.IsActive ? 1 : 0
                     },
                     new object[]
                     {
-                        AdminUser.UserId,
                         AdminUser.Forename,
                         AdminUser.Surname,
                         AdminUser.Username,
                         AdminUser.Password,
                         (int)AdminUser.Level,
-                        AdminUser.IsActive
+                        AdminUser.IsActive ? 1 : 0
                     },
                     new object[]
                     {
-                        SuperAdminUser.UserId,
                         SuperAdminUser.Forename,
                         SuperAdminUser.Surname,
                         SuperAdminUser.Username,
                         SuperAdminUser.Password,
                         (int)SuperAdminUser.Level,
-                        SuperAdminUser.IsActive
+                        SuperAdminUser.IsActive ? 1 : 0
                     },
                     new object[]
                     {
-                        DisabledUser.UserId,
                         DisabledUser.Forename,
                         DisabledUser.Surname,
                         DisabledUser.Username,
                         DisabledUser.Password,
                         (int)DisabledUser.Level,
-                        DisabledUser.IsActive
+                        DisabledUser.IsActive ? 1 : 0
                     },
                 });
 
