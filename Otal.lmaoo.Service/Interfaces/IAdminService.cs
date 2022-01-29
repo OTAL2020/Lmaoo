@@ -1,4 +1,4 @@
-﻿namespace Otal.lmaoo.Services.Interfaces
+﻿namespace Otal.lmaoo.Service.Interfaces
 {
     using Otal.lmaoo.Core.Entities;
 

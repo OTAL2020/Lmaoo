@@ -1,8 +1,8 @@
-﻿namespace Otal.lmaoo.Services
+﻿namespace Otal.lmaoo.Service
 {
     using Microsoft.Extensions.DependencyInjection;
-    using Otal.lmaoo.Services.Interfaces;
-    using Otal.lmaoo.Services.ServiceObjects;
+    using Otal.lmaoo.Service.Interfaces;
+    using Otal.lmaoo.Service.ServiceObjects;
 
     public static class CollectionServices
     {

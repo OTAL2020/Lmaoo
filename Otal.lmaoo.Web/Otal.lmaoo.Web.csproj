@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Otal.lmaoo.Data\Otal.lmaoo.Data.csproj" />
-    <ProjectReference Include="..\Otal.lmaoo.Services\Otal.lmaoo.Services.csproj" />
+    <ProjectReference Include="..\Otal.lmaoo.Service\Otal.lmaoo.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
