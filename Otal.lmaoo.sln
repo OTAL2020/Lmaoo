@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Web", "Otal.lmaoo.Web\Otal.lmaoo.Web.csproj", "{0B9DF402-F344-4676-BE3B-D1E94ACA8C53}"
 EndProject
@@ -21,6 +21,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Services", "Otal.lmaoo.Services\Otal.lmaoo.Services.csproj", "{AA6D3202-FAFC-4FFA-9ED0-2BDA0040F319}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FF228645-8453-4508-9217-10657317DCDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Data.IntegrationTests", "Otal.lmaoo.Data.IntegrationTests\Otal.lmaoo.Data.IntegrationTests.csproj", "{EB2BD406-2207-4DC6-A379-33CCAB98498E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,8 +54,12 @@ Global
 		{AA6D3202-FAFC-4FFA-9ED0-2BDA0040F319}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF228645-8453-4508-9217-10657317DCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF228645-8453-4508-9217-10657317DCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF228645-8453-4508-9217-10657317DCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF228645-8453-4508-9217-10657317DCDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF228645-8453-4508-9217-10657317DCDB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF228645-8453-4508-9217-10657317DCDB}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
