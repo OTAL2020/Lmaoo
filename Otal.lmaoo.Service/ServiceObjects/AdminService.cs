@@ -1,8 +1,8 @@
-﻿namespace Otal.lmaoo.Services.ServiceObjects
+﻿namespace Otal.lmaoo.Service.ServiceObjects
 {
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces;
-    using Otal.lmaoo.Services.Interfaces;
+    using Otal.lmaoo.Service.Interfaces;
 
     public class AdminService : IAdminService
     {
@@ -19,11 +19,6 @@
         }
 
         public User UpdateUser(User user)
-        {
-            return _userDao.Update(user);
-        }
-
-        public User EditUser(User user)
         {
             return _userDao.Update(user);
         }

@@ -8,7 +8,7 @@ namespace Otal.lmaoo.Web
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Otal.lmaoo.Data;
-    using Otal.lmaoo.Services;
+    using Otal.lmaoo.Service;
 
     public class Startup
     {

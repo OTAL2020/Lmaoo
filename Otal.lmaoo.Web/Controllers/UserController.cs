@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Otal.lmaoo.Core.Entities;
-    using Otal.lmaoo.Services.Interfaces;
+    using Otal.lmaoo.Service.Interfaces;
     using Otal.lmaoo.Web.ViewModels.User;
     using System.Collections.Generic;
     using System.Security.Claims;
@@ -42,11 +42,11 @@
                 return View(vm);
             }
 
-            var user = _userService.GetByUsernameAndPassword(vm.Username, vm.Password);
+            (var user, var message) = _userService.GetByUsernameAndPassword(vm.Username, vm.Password);
 
             if (user == null)
             {
-                TempData["Error"] = "Username and Password does not match";
+                TempData["Error"] = message;
                 return View(vm);
             }
 

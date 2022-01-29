@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Otal.lmaoo.Services.Interfaces;
+    using Otal.lmaoo.Service.Interfaces;
 
     public class AdminController : BaseController
     {

@@ -1,8 +1,8 @@
-﻿namespace Otal.lmaoo.Services.ServiceObjects
+﻿namespace Otal.lmaoo.Service.ServiceObjects
 {
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces;
-    using Otal.lmaoo.Services.Interfaces;
+    using Otal.lmaoo.Service.Interfaces;
 
     public class UserService : IUserService
     {
@@ -13,9 +13,9 @@
             _userDao = userDao;
         }
 
-        public User GetById(int id)
+        public User GetById(int userId)
         {
-            return _userDao.GetById(id);
+            return _userDao.GetById(userId);
         }
 
         public User GetByUsername(string username)
@@ -23,21 +23,26 @@
             return _userDao.GetByUsername(username);
         }
 
-        public User GetByUsernameAndPassword(string username, string password)
+        public (User, string message) GetByUsernameAndPassword(string username, string password)
         {
             var user = _userDao.GetByUsername(username);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
-                return null;
+                return (null, "Username and Password does not match");
             }
 
-            return user;
+            if (!user.IsActive)
+            {
+                return (null, "User is no longer active, please contact the administrator");
+            }
+
+            return (user, null);
         }
 
-        public void RegisterUser(User user)
+        public User RegisterUser(User user)
         {
-            _userDao.Create(user);
+            return _userDao.Create(user);
         }
     }
 }
