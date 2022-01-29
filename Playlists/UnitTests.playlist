@@ -1,0 +1,72 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="Otal.lmaoo.Service.UnitTests" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Otal.lmaoo.Service.UnitTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="UserServiceTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetById_ShouldNotReturnUser_WhenUserDoesNotExist" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetById_ShouldNotReturnUser_WhenUserDoesNotExist" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetById_ShouldReturnUser_WhenUserExists" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetById_ShouldReturnUser_WhenUserExists" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsernameAndPassword_ShouldReturnUser_PasswordDoesMatch" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsernameAndPassword_ShouldReturnUser_PasswordDoesMatch" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsernameAndPassword_ShouldReturnUser_PasswordDoesNotMatch" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsernameAndPassword_ShouldReturnUser_PasswordDoesNotMatch" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsernameAndPassword_ShouldReturnUser_UserNotActive" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsernameAndPassword_ShouldReturnUser_UserNotActive" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsername_ShouldNotReturnUser_WhenUserDoesNotExist" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsername_ShouldNotReturnUser_WhenUserDoesNotExist" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsername_ShouldReturnUser_WhenUserExists" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.GetByUsername_ShouldReturnUser_WhenUserExists" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.RegisterUser_ShouldReturnUser" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Otal.lmaoo.Service.UnitTests.UserServiceTests.RegisterUser_ShouldReturnUser" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>
