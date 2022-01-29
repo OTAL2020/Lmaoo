@@ -8,7 +8,7 @@ namespace Otal.lmaoo.Services.Interfaces
 
         User GetByUsername(string username);
 
-        User GetByUsernameAndPassword(string username, string password);
+        (User, string errorMessage) GetByUsernameAndPassword(string username, string password);
 
         void RegisterUser(User user);
     }

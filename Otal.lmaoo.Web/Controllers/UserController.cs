@@ -42,11 +42,11 @@
                 return View(vm);
             }
 
-            var user = _userService.GetByUsernameAndPassword(vm.Username, vm.Password);
+            (var user, var message) = _userService.GetByUsernameAndPassword(vm.Username, vm.Password);
 
             if (user == null)
             {
-                TempData["Error"] = "Username and Password does not match";
+                TempData["Error"] = message;
                 return View(vm);
             }
 

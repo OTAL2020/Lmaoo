@@ -23,16 +23,21 @@
             return _userDao.GetByUsername(username);
         }
 
-        public User GetByUsernameAndPassword(string username, string password)
+        public (User, string message) GetByUsernameAndPassword(string username, string password)
         {
             var user = _userDao.GetByUsername(username);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
-                return null;
+                return (null, "Username and Password does not match");
             }
 
-            return user;
+            if (!user.IsActive)
+            {
+                return (null, "User is no longer active, please contact the administrator");
+            }
+
+            return (user, null);
         }
 
         public void RegisterUser(User user)
