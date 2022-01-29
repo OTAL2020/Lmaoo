@@ -10,6 +10,6 @@
 
         (User, string message) GetByUsernameAndPassword(string username, string password);
 
-        void RegisterUser(User user);
+        User RegisterUser(User user);
     }
 }

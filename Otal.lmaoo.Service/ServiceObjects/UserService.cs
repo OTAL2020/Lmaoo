@@ -13,9 +13,9 @@
             _userDao = userDao;
         }
 
-        public User GetById(int id)
+        public User GetById(int userId)
         {
-            return _userDao.GetById(id);
+            return _userDao.GetById(userId);
         }
 
         public User GetByUsername(string username)
@@ -40,9 +40,9 @@
             return (user, null);
         }
 
-        public void RegisterUser(User user)
+        public User RegisterUser(User user)
         {
-            _userDao.Create(user);
+            return _userDao.Create(user);
         }
     }
 }
