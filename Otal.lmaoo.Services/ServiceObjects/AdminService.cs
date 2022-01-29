@@ -22,10 +22,5 @@
         {
             return _userDao.Update(user);
         }
-
-        public User EditUser(User user)
-        {
-            return _userDao.Update(user);
-        }
     }
 }
