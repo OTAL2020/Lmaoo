@@ -1,8 +1,8 @@
-﻿using FluentValidation;
-using Otal.lmaoo.Web.ViewModels.User;
-
-namespace Otal.lmaoo.Web.ViewModelsValidation.User
+﻿namespace Otal.lmaoo.Web.ViewModelsValidation.User
 {
+    using FluentValidation;
+    using Otal.lmaoo.Web.ViewModels.User;
+
     public class LoginViewModelValidator : AbstractValidator<LoginViewModel>
     {
         public LoginViewModelValidator()
