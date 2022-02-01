@@ -7,7 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Otal.lmaoo.Web/Otal.lmaoo.Web.csproj", "Otal.lmaoo.Web/"]
-COPY ["Otal.lmaoo.Services/Otal.lmaoo.Services.csproj", "Otal.lmaoo.Services/"]
+COPY ["Otal.lmaoo.Service/Otal.lmaoo.Service.csproj", "Otal.lmaoo.Service/"]
 COPY ["Otal.lmaoo.Core/Otal.lmaoo.Core.csproj", "Otal.lmaoo.Core/"]
 COPY ["Otal.lmaoo.Data/Otal.lmaoo.Data.csproj", "Otal.lmaoo.Data/"]
 RUN dotnet restore "Otal.lmaoo.Web/Otal.lmaoo.Web.csproj"
@@ -21,4 +21,4 @@ RUN dotnet publish "Otal.lmaoo.Web.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "watch", "run"]
+ENTRYPOINT ["dotnet", "Otal.lmaoo.Web.dll"]
