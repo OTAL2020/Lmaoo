@@ -26,6 +26,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Service.UnitTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Service", "Otal.lmaoo.Service\Otal.lmaoo.Service.csproj", "{DE6F3059-22E8-4670-BB10-445AAECCD3A2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{978348DD-97D3-4099-AA2F-5CB603393589}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FBFA4487-208A-4AD9-9401-66E6323786C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "env", "env", "{414CCEE8-58BB-4381-8BE3-D6783DE69213}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		.env.integration = .env.integration
+		.env.sample = .env.sample
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +80,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B9DF402-F344-4676-BE3B-D1E94ACA8C53} = {978348DD-97D3-4099-AA2F-5CB603393589}
+		{E3F01CA7-40B9-42D2-9080-CE677621AF7D} = {978348DD-97D3-4099-AA2F-5CB603393589}
+		{D323545D-CDF2-4712-8441-65847F01DD90} = {978348DD-97D3-4099-AA2F-5CB603393589}
+		{0F70CB84-C53B-424A-951F-C1CE2FA7AF70} = {978348DD-97D3-4099-AA2F-5CB603393589}
+		{EB2BD406-2207-4DC6-A379-33CCAB98498E} = {FBFA4487-208A-4AD9-9401-66E6323786C9}
+		{2DAE6E11-16A3-4EBA-968F-9B353ACA23A2} = {FBFA4487-208A-4AD9-9401-66E6323786C9}
+		{DE6F3059-22E8-4670-BB10-445AAECCD3A2} = {978348DD-97D3-4099-AA2F-5CB603393589}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D1D338E-D1E1-4B58-8B5A-683B2FCD312D}
