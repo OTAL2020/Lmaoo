@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7C1C37C-E821-4CEC-9E21-BD1AB92D9FBF}"
 	ProjectSection(SolutionItems) = preProject
 		.env = .env
+		.env.integration = .env.integration
 		.env.sample = .env.sample
 		.gitignore = .gitignore
 	EndProjectSection
@@ -29,13 +30,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{978348DD-97D3-4099-AA2F-5CB603393589}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FBFA4487-208A-4AD9-9401-66E6323786C9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "env", "env", "{414CCEE8-58BB-4381-8BE3-D6783DE69213}"
-	ProjectSection(SolutionItems) = preProject
-		.env = .env
-		.env.integration = .env.integration
-		.env.sample = .env.sample
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
