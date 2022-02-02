@@ -8,6 +8,11 @@ services:
             ACCEPT_EULA: "Y"
         ports:
             - "${DB_PORT}:1433"
+        volumes:
+            - ./db_data:/var/opt/mssql/data
+            - type: bind
+              source: ./Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Database_Create.sql
+              target: /script/Otal.lmaoo.Database_Create.sql
 
     web:
         image: mcr.microsoft.com/dotnet/sdk:6.0
