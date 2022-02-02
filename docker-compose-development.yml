@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+    db:
+        image: "mcr.microsoft.com/azure-sql-edge:latest"
+        environment:
+            SA_PASSWORD: "IntegrationTest123!"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "${DB_PORT}:1433"
+
+    web:
+        image: mcr.microsoft.com/dotnet/sdk:6.0
+        volumes:
+            - ./:/app
+        environment:
+            DB_DATABASE: Otal.lmaoo.Database
+            DB_PASSWORD: IntegrationTest123!
+            urls: http://0.0.0.0:${DOTNET_PORT}
+            
+        ports:
+            - "${DOTNET_PORT}:${DOTNET_PORT}"
+        command:
+          - /bin/bash
+          - -c
+          - |
+            cd app
+            dotnet restore Otal.lmaoo.Web
+            dotnet clean Otal.lmaoo.Web
+            dotnet build Otal.lmaoo.Web
+            cd Otal.lmaoo.Web
+            dotnet watch run
+        depends_on:
+            - db
+        links:
+            - db
