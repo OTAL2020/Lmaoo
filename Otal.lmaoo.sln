@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FF228645-8453-4508-9217-10657317DCDB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Data.IntegrationTests", "Otal.lmaoo.Data.IntegrationTests\Otal.lmaoo.Data.IntegrationTests.csproj", "{EB2BD406-2207-4DC6-A379-33CCAB98498E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Otal.lmaoo.Service.UnitTests", "Otal.lmaoo.Service.UnitTests\Otal.lmaoo.Service.UnitTests.csproj", "{2DAE6E11-16A3-4EBA-968F-9B353ACA23A2}"
@@ -30,6 +28,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{978348DD-97D3-4099-AA2F-5CB603393589}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FBFA4487-208A-4AD9-9401-66E6323786C9}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{196BBA76-D3EE-42BE-BD5C-9EACC3DF9026}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +55,6 @@ Global
 		{0F70CB84-C53B-424A-951F-C1CE2FA7AF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F70CB84-C53B-424A-951F-C1CE2FA7AF70}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F70CB84-C53B-424A-951F-C1CE2FA7AF70}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{FF228645-8453-4508-9217-10657317DCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF228645-8453-4508-9217-10657317DCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF228645-8453-4508-9217-10657317DCDB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF228645-8453-4508-9217-10657317DCDB}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB2BD406-2207-4DC6-A379-33CCAB98498E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -71,6 +67,10 @@ Global
 		{DE6F3059-22E8-4670-BB10-445AAECCD3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE6F3059-22E8-4670-BB10-445AAECCD3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE6F3059-22E8-4670-BB10-445AAECCD3A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{196BBA76-D3EE-42BE-BD5C-9EACC3DF9026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196BBA76-D3EE-42BE-BD5C-9EACC3DF9026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196BBA76-D3EE-42BE-BD5C-9EACC3DF9026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196BBA76-D3EE-42BE-BD5C-9EACC3DF9026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

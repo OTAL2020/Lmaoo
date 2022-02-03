@@ -14,6 +14,14 @@ docker compose up -d
 ```
 This will spin up the website and the database. Note: You may notice a db_data folder in the root directory, this directory is database mounted data to attain data persistence. DO NOT DELETE THIS.
 
+### Running project in Developer Mode
+There are two ways to accomplish this, if you are using Visual Studio, simply selecting Docker compose will be suffice. To run it in Visual Studio code, you need to run the following command at root of the project, this is shown below:
+
+```bash
+docker compose -f docker-compose-development.yml up -d
+```
+This will run the both the website and the database
+
 ## How to connect to the database locally
 As this is run via Docker, there will be no docker instance name. Using your preferred SQL Server Management, the credentials will be as follows:
 ```
