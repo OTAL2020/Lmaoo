@@ -1,44 +1,36 @@
-﻿using System;
-using System.Data.SqlClient;
-using Xunit.Abstractions;
-
-namespace Otal.lmaoo.Data.IntegrationTests
+﻿namespace Otal.lmaoo.Data.IntegrationTests
 {
+    using System;
+
     public static class Database
     {
+        public static string SOURCE => Environment.GetEnvironmentVariable("DB_SOURCE") ?? "localhost";
+        public static string PORT => Environment.GetEnvironmentVariable("DB_PORT") ?? "1433";
+        public static string NAME => Environment.GetEnvironmentVariable("DB_NAME") ?? "Otal.lmaoo.Database";
+        public static string USERNAME => Environment.GetEnvironmentVariable("DB_USERNAME") ?? "sa";
+        public static string PASSWORD => Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "IntegrationTest123!";
         public static string ConnectionString()
         {
-            var db_db = Environment.GetEnvironmentVariable("DB_DATABASE");
-            var db_pass = Environment.GetEnvironmentVariable("DB_PASSWORD");
-            var connectionString = string.Format("Data Source=db;Database={0};User Id=sa;Password={1};", db_db, db_pass);
+            string cs = string.Format("Data Source={0},{1};Database={2};User Id={3};Password={4};",
+                        SOURCE,
+                        PORT,
+                        NAME,
+                        USERNAME,
+                        PASSWORD);
 
-            return connectionString;
+            return cs;
         }
 
-        public static bool CheckDatabaseExists(string connectionString, string databaseName)
+        public static string MasterConnectionString()
         {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
+            string cs = string.Format("Data Source={0},{1};Database={2};User Id={3};Password={4};",
+                        SOURCE,
+                        PORT,
+                        "master",
+                        USERNAME,
+                        PASSWORD);
 
-                using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
-                {
-                    return (command.ExecuteScalar() != DBNull.Value);
-                }
-            }
-        }
-
-        public static int RunQuery(string connectionString, string query)
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (var command = new SqlCommand($"{query}", connection))
-                {
-                    return command.ExecuteNonQuery();
-                }
-            }
+            return cs;
         }
     }
 }
