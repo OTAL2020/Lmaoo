@@ -42,4 +42,10 @@
     <ProjectReference Include="..\Otal.lmaoo.Data\Otal.lmaoo.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="setupdatabase.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
