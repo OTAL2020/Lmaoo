@@ -44,9 +44,9 @@ namespace Otal.lmaoo.Data.IntegrationTests.Tests
             Assert.Equal(UserSeed.DeveloperUser.Forename, user.Forename);
             Assert.Equal(UserSeed.DeveloperUser.Surname, user.Surname);
             Assert.Equal(UserSeed.DeveloperUser.Username, user.Username);
-            Assert.Equal(UserSeed.DeveloperUser.Password, user.Password);
-            Assert.Equal(UserSeed.DeveloperUser.Level.ToString(), user.Level.ToString());
-            Assert.Equal(UserSeed.DeveloperUser.IsActive.ToString(), user.IsActive.ToString());
+            Assert.NotNull(user.Password);
+            Assert.Equal(UserSeed.DeveloperUser.Level, user.Level);
+            Assert.Equal(UserSeed.DeveloperUser.IsActive, user.IsActive);
         }
 
         [Fact]
@@ -63,10 +63,9 @@ namespace Otal.lmaoo.Data.IntegrationTests.Tests
 
             Assert.NotNull(user);
             Assert.Equal(UserSeed.ManagerUser.Username, user.Username);
-
             Assert.Equal(UserSeed.ManagerUser.Forename, user.Forename);
             Assert.Equal(UserSeed.ManagerUser.Surname, user.Surname);
-            Assert.Equal(UserSeed.ManagerUser.Password, user.Password);
+            Assert.NotNull(user.Password);
             Assert.Equal(UserSeed.ManagerUser.Level.ToString(), user.Level.ToString());
             Assert.Equal(UserSeed.ManagerUser.IsActive.ToString(), user.IsActive.ToString());
         }
@@ -124,6 +123,26 @@ namespace Otal.lmaoo.Data.IntegrationTests.Tests
             Assert.Equal(updatedUser.Surname, actualUser.Surname);
             Assert.Equal(updatedUser.Level, actualUser.Level);
             Assert.Equal(updatedUser.IsActive, actualUser.IsActive);
+        }
+
+        [Fact]
+        public void Create_ValidUser()
+        {
+            var newUser = new User
+            {
+                Forename = "New",
+                Surname = "User",
+                Username = "NewUser",
+                Password = "pass"
+            };
+
+            var actualUser = _userDao.Create(newUser);
+
+            Assert.NotNull(actualUser);
+            Assert.Equal(newUser.Forename, actualUser.Forename);
+            Assert.Equal(newUser.Surname, actualUser.Surname);
+            Assert.Equal(newUser.Username, actualUser.Username);
+            Assert.Equal(newUser.Password, actualUser.Password);
         }
 
         [Fact]

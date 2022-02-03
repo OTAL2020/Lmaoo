@@ -21,3 +21,5 @@ AS
 		@Username,
 		@Password
 	)
+
+	SELECT * FROM [dbo].[User] WHERE [UserId] = SCOPE_IDENTITY();

@@ -845,34 +845,6 @@ AS
 	WHERE
 		[IsActive] = @IsActive
 GO
-PRINT N'Creating Procedure [dbo].[User_Create]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[User_Create]
-	@Forename	as NVARCHAR(30),
-	@Surname	as NVARCHAR(30),
-	@Username	as NVARCHAR(15),
-	@Password	as NVARCHAR(255)
-
-AS
-	SET NOCOUNT ON
-
-	INSERT INTO [dbo].[User]
-	(
-		[Forename],
-		[Surname],
-		[Username],
-		[Password]
-	)
-	VALUES
-	(
-		@Forename,
-		@Surname,
-		@Username,
-		@Password
-	)
-GO
 PRINT N'Creating Procedure [dbo].[Comment_GetByTicketId]...';
 
 
@@ -1162,22 +1134,6 @@ AS
 
     SELECT * from [dbo].[Project] WHERE ProjectId = SCOPE_IDENTITY()
 GO
-PRINT N'Creating Procedure [dbo].[User_Delete]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[User_Delete]
-	@UserId INT
-AS
-	SET NOCOUNT ON
-
-	UPDATE [User] SET
-		[IsActive] = 0
-	FROM 
-		[dbo].[User]
-	WHERE
-		[UserId] = @UserId
-GO
 PRINT N'Creating Procedure [dbo].[User_Update]...';
 
 
@@ -1204,6 +1160,52 @@ AS
 		[UserId] = @UserId
 
 	SELECT * FROM [dbo].[User] WHERE [UserId] = @UserId
+GO
+PRINT N'Creating Procedure [dbo].[User_Delete]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[User_Delete]
+	@UserId INT
+AS
+	SET NOCOUNT ON
+
+	UPDATE [User] SET
+		[IsActive] = 0
+	FROM 
+		[dbo].[User]
+	WHERE
+		[UserId] = @UserId
+GO
+PRINT N'Creating Procedure [dbo].[User_Create]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[User_Create]
+	@Forename	as NVARCHAR(30),
+	@Surname	as NVARCHAR(30),
+	@Username	as NVARCHAR(15),
+	@Password	as NVARCHAR(255)
+
+AS
+	SET NOCOUNT ON
+
+	INSERT INTO [dbo].[User]
+	(
+		[Forename],
+		[Surname],
+		[Username],
+		[Password]
+	)
+	VALUES
+	(
+		@Forename,
+		@Surname,
+		@Username,
+		@Password
+	)
+
+	SELECT * FROM [dbo].[User] WHERE [UserId] = SCOPE_IDENTITY();
 GO
 DECLARE @VarDecimalSupported AS BIT;
 
