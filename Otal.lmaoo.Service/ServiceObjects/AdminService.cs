@@ -3,6 +3,7 @@
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces;
     using Otal.lmaoo.Service.Interfaces;
+    using System.Collections.Generic;
 
     public class AdminService : IAdminService
     {
@@ -13,7 +14,7 @@
             _userDao = userDao;
         }
 
-        public User GetByActive(bool IsActive)
+        public IEnumerable<User> GetByActive(bool IsActive)
         {
             return _userDao.GetByActive(IsActive);
         }

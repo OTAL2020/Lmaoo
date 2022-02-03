@@ -230,38 +230,6 @@ IF fulltextserviceproperty(N'IsFulltextInstalled') = 1
 
 
 GO
-PRINT N'Creating Table [dbo].[ProjectAccess]...';
-
-
-GO
-CREATE TABLE [dbo].[ProjectAccess] (
-    [ProjectAccessId] INT IDENTITY (1, 1) NOT NULL,
-    [UserId]          INT NOT NULL,
-    [ProjectId]       INT NOT NULL,
-    [ManagerAccess]   BIT NOT NULL,
-    CONSTRAINT [PK_ProjectAccess_ProjectAccessId] PRIMARY KEY CLUSTERED ([ProjectAccessId] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [dbo].[User]...';
-
-
-GO
-CREATE TABLE [dbo].[User] (
-    [UserId]   INT            IDENTITY (1, 1) NOT NULL,
-    [Username] NVARCHAR (15)  NOT NULL,
-    [Password] NVARCHAR (255) NOT NULL,
-    [Forename] NVARCHAR (30)  NOT NULL,
-    [Surname]  NVARCHAR (30)  NOT NULL,
-    [Level]    SMALLINT       NOT NULL,
-    [IsActive] BIT            NOT NULL,
-    [Picture]  VARCHAR (100)  NOT NULL,
-    CONSTRAINT [PK_User_UserId] PRIMARY KEY CLUSTERED ([UserId] ASC)
-);
-
-
-GO
 PRINT N'Creating Table [dbo].[Ticket]...';
 
 
@@ -282,17 +250,16 @@ CREATE TABLE [dbo].[Ticket] (
 
 
 GO
-PRINT N'Creating Table [dbo].[Project]...';
+PRINT N'Creating Table [dbo].[ProjectAccess]...';
 
 
 GO
-CREATE TABLE [dbo].[Project] (
-    [ProjectId] INT          IDENTITY (1, 1) NOT NULL,
-    [Name]      VARCHAR (20) NOT NULL,
-    [Status]    VARCHAR (20) NOT NULL,
-    [OwnerId]   INT          NOT NULL,
-    [Active]    BIT          NOT NULL,
-    CONSTRAINT [PK_Project_ProjectId] PRIMARY KEY CLUSTERED ([ProjectId] ASC)
+CREATE TABLE [dbo].[ProjectAccess] (
+    [ProjectAccessId] INT IDENTITY (1, 1) NOT NULL,
+    [UserId]          INT NOT NULL,
+    [ProjectId]       INT NOT NULL,
+    [ManagerAccess]   BIT NOT NULL,
+    CONSTRAINT [PK_ProjectAccess_ProjectAccessId] PRIMARY KEY CLUSTERED ([ProjectAccessId] ASC)
 );
 
 
@@ -326,39 +293,36 @@ CREATE TABLE [dbo].[Comment] (
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [dbo].[ProjectAccess]...';
+PRINT N'Creating Table [dbo].[Project]...';
 
 
 GO
-ALTER TABLE [dbo].[ProjectAccess]
-    ADD DEFAULT '0' FOR [ManagerAccess];
+CREATE TABLE [dbo].[Project] (
+    [ProjectId] INT          IDENTITY (1, 1) NOT NULL,
+    [Name]      VARCHAR (20) NOT NULL,
+    [Status]    VARCHAR (20) NOT NULL,
+    [OwnerId]   INT          NOT NULL,
+    [Active]    BIT          NOT NULL,
+    CONSTRAINT [PK_Project_ProjectId] PRIMARY KEY CLUSTERED ([ProjectId] ASC)
+);
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [dbo].[User]...';
+PRINT N'Creating Table [dbo].[User]...';
 
 
 GO
-ALTER TABLE [dbo].[User]
-    ADD DEFAULT '1' FOR [Level];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [dbo].[User]...';
-
-
-GO
-ALTER TABLE [dbo].[User]
-    ADD DEFAULT 1 FOR [IsActive];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [dbo].[User]...';
-
-
-GO
-ALTER TABLE [dbo].[User]
-    ADD DEFAULT '~/img/avatar.jpg' FOR [Picture];
+CREATE TABLE [dbo].[User] (
+    [UserId]   INT            IDENTITY (1, 1) NOT NULL,
+    [Username] NVARCHAR (15)  NOT NULL,
+    [Password] NVARCHAR (255) NOT NULL,
+    [Forename] NVARCHAR (30)  NOT NULL,
+    [Surname]  NVARCHAR (30)  NOT NULL,
+    [Level]    SMALLINT       NOT NULL,
+    [IsActive] BIT            NOT NULL,
+    [Picture]  VARCHAR (100)  NOT NULL,
+    CONSTRAINT [PK_User_UserId] PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
 
 
 GO
@@ -407,12 +371,12 @@ ALTER TABLE [dbo].[Ticket]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [dbo].[Project]...';
+PRINT N'Creating Default Constraint unnamed constraint on [dbo].[ProjectAccess]...';
 
 
 GO
-ALTER TABLE [dbo].[Project]
-    ADD DEFAULT 1 FOR [Active];
+ALTER TABLE [dbo].[ProjectAccess]
+    ADD DEFAULT '0' FOR [ManagerAccess];
 
 
 GO
@@ -452,21 +416,39 @@ ALTER TABLE [dbo].[Comment]
 
 
 GO
-PRINT N'Creating Foreign Key [dbo].[FK_ProjectAccess_ProjectId]...';
+PRINT N'Creating Default Constraint unnamed constraint on [dbo].[Project]...';
 
 
 GO
-ALTER TABLE [dbo].[ProjectAccess]
-    ADD CONSTRAINT [FK_ProjectAccess_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project] ([ProjectId]);
+ALTER TABLE [dbo].[Project]
+    ADD DEFAULT 1 FOR [Active];
 
 
 GO
-PRINT N'Creating Foreign Key [dbo].[FK_ProjectAccess_UserId]...';
+PRINT N'Creating Default Constraint unnamed constraint on [dbo].[User]...';
 
 
 GO
-ALTER TABLE [dbo].[ProjectAccess]
-    ADD CONSTRAINT [FK_ProjectAccess_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId]);
+ALTER TABLE [dbo].[User]
+    ADD DEFAULT '1' FOR [Level];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [dbo].[User]...';
+
+
+GO
+ALTER TABLE [dbo].[User]
+    ADD DEFAULT 1 FOR [IsActive];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [dbo].[User]...';
+
+
+GO
+ALTER TABLE [dbo].[User]
+    ADD DEFAULT '~/img/avatar.jpg' FOR [Picture];
 
 
 GO
@@ -497,12 +479,21 @@ ALTER TABLE [dbo].[Ticket]
 
 
 GO
-PRINT N'Creating Foreign Key [dbo].[FK_Project_UserId]...';
+PRINT N'Creating Foreign Key [dbo].[FK_ProjectAccess_ProjectId]...';
 
 
 GO
-ALTER TABLE [dbo].[Project]
-    ADD CONSTRAINT [FK_Project_UserId] FOREIGN KEY ([OwnerId]) REFERENCES [dbo].[User] ([UserId]);
+ALTER TABLE [dbo].[ProjectAccess]
+    ADD CONSTRAINT [FK_ProjectAccess_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project] ([ProjectId]);
+
+
+GO
+PRINT N'Creating Foreign Key [dbo].[FK_ProjectAccess_UserId]...';
+
+
+GO
+ALTER TABLE [dbo].[ProjectAccess]
+    ADD CONSTRAINT [FK_ProjectAccess_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId]);
 
 
 GO
@@ -533,6 +524,136 @@ ALTER TABLE [dbo].[Comment]
 
 
 GO
+PRINT N'Creating Foreign Key [dbo].[FK_Project_UserId]...';
+
+
+GO
+ALTER TABLE [dbo].[Project]
+    ADD CONSTRAINT [FK_Project_UserId] FOREIGN KEY ([OwnerId]) REFERENCES [dbo].[User] ([UserId]);
+
+
+GO
+PRINT N'Creating Procedure [dbo].[Ticket_GetByFeatureId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Ticket_GetByFeatureId]
+	@FeatureId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        t.[TicketId],
+        t.[Summary],
+        t.[Created],
+        t.[Updated],
+        t.[Progress],
+        t.[ReporterId],
+        t.[AssigneeId], 
+        CONCAT(u.forename, ' ' ,u.surname) AS ReporterName, 
+        u.[Username] AS ReporterUsername, 
+        CONCAT(u2.forename, ' ' ,u2.surname) AS AssigneeName, 
+        u2.[Username] AS AssigneeUsername
+    FROM [dbo].[Ticket] t
+        INNER JOIN [dbo].[User] u ON u.userId = t.[ReporterId]
+        INNER JOIN [dbo].[User] u2 ON u2.userId = t.[AssigneeId]
+    WHERE 
+        t.[FeatureId] = @FeatureId
+GO
+PRINT N'Creating Procedure [dbo].[Ticket_Delete]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Ticket_Delete]
+	@TicketId INT
+AS
+	SET NOCOUNT ON
+
+    UPDATE 
+        [dbo].[Ticket]
+    SET
+        [Active] = 0
+    WHERE
+        [TicketId] = @TicketId
+GO
+PRINT N'Creating Procedure [dbo].[Ticket_Update]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Ticket_Update]
+    @Summary VARCHAR(50),
+    @Progress VARCHAR(20),
+    @Deadline DATETIME,
+	@FeatureId INT,
+    @TicketId INT,
+    @AssigneeId INT,
+    @Active BIT
+AS
+	SET NOCOUNT ON
+
+    UPDATE 
+        [dbo].[Ticket]
+    SET
+        [Summary] = @Summary,
+        [AssigneeId] = @AssigneeId,
+        [Progress] = @Progress,
+        [Deadline] = @Deadline,
+        [FeatureId] = @FeatureId,
+        [Updated] = GETUTCDATE()
+    WHERE
+        [TicketId] = @TicketId
+
+    SELECT * from [dbo].[Ticket] WHERE TicketId = @TicketId
+GO
+PRINT N'Creating Procedure [dbo].[Ticket_Create]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Ticket_Create]
+	@Summary VARCHAR(50),
+    @FeatureId INT,
+    @ReporterId INT
+AS
+	SET NOCOUNT ON
+
+    INSERT INTO [dbo].[Ticket]
+    (
+        [Summary],
+        [FeatureId],
+        [ReporterId]
+    )
+    VALUES
+    (
+        @Summary,
+        @FeatureId,
+        @ReporterId
+    )
+
+    SELECT * from [dbo].[Ticket] WHERE TicketId = SCOPE_IDENTITY()
+GO
+PRINT N'Creating Procedure [dbo].[Feature_Create]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Feature_Create]
+	@Name VARCHAR(50),
+    @ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    INSERT INTO [dbo].[Feature]
+    (
+        [Name],
+        [ProjectId]
+    )
+    VALUES
+    (
+        @Name,
+        @ProjectId
+    )
+
+    SELECT * from [dbo].[Feature] WHERE FeatureId = SCOPE_IDENTITY()
+GO
 PRINT N'Creating Procedure [dbo].[Feature_GetInactiveByProjectId]...';
 
 
@@ -552,26 +673,6 @@ AS
     WHERE 
         [ProjectId] = @ProjectId AND 
         [Active] = 0
-GO
-PRINT N'Creating Procedure [dbo].[Feature_GetById]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Feature_GetById]
-	@FeatureId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        [FeatureId],
-        [Name],
-        [ProjectId],
-        [Active]
-    FROM 
-        [dbo].[Feature]
-    WHERE 
-        [FeatureId] = @FeatureId AND 
-        [Active] = 1
 GO
 PRINT N'Creating Procedure [dbo].[Feature_GetActiveByProjectId]...';
 
@@ -609,275 +710,6 @@ AS
     WHERE
         [FeatureId] = @FeatureId
 GO
-PRINT N'Creating Procedure [dbo].[Feature_Create]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Feature_Create]
-	@Name VARCHAR(50),
-    @ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    INSERT INTO [dbo].[Feature]
-    (
-        [Name],
-        [ProjectId]
-    )
-    VALUES
-    (
-        @Name,
-        @ProjectId
-    )
-
-    SELECT * from [dbo].[Feature] WHERE FeatureId = SCOPE_IDENTITY()
-GO
-PRINT N'Creating Procedure [dbo].[Comment_Update]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_Update]
-    @Content VARCHAR(255),
-    @CommentId INT
-AS
-	SET NOCOUNT ON
-
-    UPDATE 
-        [dbo].[Comment]
-    SET
-        [Content] = @Content
-    WHERE
-        [CommentId] = @CommentId
-GO
-PRINT N'Creating Procedure [dbo].[Comment_GetByTicketId]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_GetByTicketId]
-	@TicketId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        c.[CommentId],
-        c.[Content],
-        c.[Created],
-        c.[TicketId],
-        u.[UserId],
-        u.[Forename],
-        u.[Surname],
-        u.[Picture]
-    FROM 
-        [dbo].[Comment] c
-        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
-    WHERE 
-        c.[TicketId] = @TicketId
-GO
-PRINT N'Creating Procedure [dbo].[Comment_GetById]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_GetById]
-	@CommentId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        c.[CommentId],
-        c.[Content],
-        c.[Created],
-        c.[TicketId],
-        u.[UserId],
-        u.[Forename],
-        u.[Surname],
-        u.[Picture]
-    FROM 
-        [dbo].[Comment] c
-        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
-    WHERE 
-        c.[CommentId] = @CommentId
-GO
-PRINT N'Creating Procedure [dbo].[Comment_Delete]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_Delete]
-	@CommentId INT
-AS
-	SET NOCOUNT ON
-
-	DELETE FROM 
-		[dbo].[Comment]
-	WHERE 
-		[CommentId] = @CommentId
-GO
-PRINT N'Creating Procedure [dbo].[Comment_Create]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_Create]
-	@Content VARCHAR(255),
-    @TicketId INT,
-    @UserId INT
-AS
-	SET NOCOUNT ON
-
-    INSERT INTO [dbo].[Comment]
-    (
-	    [Content],
-        [TicketId],
-        [UserId]
-    )
-    VALUES
-    (
-    	@Content,
-        @TicketId,
-        @UserId
-    )
-
-    SELECT * from [dbo].[Comment] WHERE CommentId = SCOPE_IDENTITY()
-GO
-PRINT N'Creating Procedure [dbo].[Project_GetByOwnerId]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_GetByOwnerId]
-	@UserId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        [ProjectId],
-        [Name],
-        [Status],
-        [Active],
-        [OwnerId]
-    FROM 
-        [dbo].[Project]
-    WHERE 
-        [OwnerId] = @UserId AND 
-        [Active] = 1
-GO
-PRINT N'Creating Procedure [dbo].[Project_GetByManagerAccess]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_GetByManagerAccess]
-	@ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        p.[ProjectId],
-        p.[Name],
-        p.[Status],
-        p.[Active],
-        p.[OwnerId]
-    FROM [dbo].[Project] p
-        INNER JOIN [dbo].[ProjectAccess] pa ON pa.[ProjectId] = p.[ProjectId]
-    WHERE 
-        p.[ProjectId] = @ProjectId AND 
-        [Active] = 1 AND
-        pa.ManagerAccess = 1
-GO
-PRINT N'Creating Procedure [dbo].[Project_GetById]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_GetById]
-	@ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        [ProjectId],
-        [Name],
-        [Status],
-        [Active],
-        [OwnerId]
-    FROM 
-        [dbo].[Project]
-    WHERE 
-        [ProjectId] = @ProjectId AND 
-        [Active] = 1
-GO
-PRINT N'Creating Procedure [dbo].[Project_DeleteAccess]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_DeleteAccess]
-	@ProjectId INT
-AS
-	SET NOCOUNT ON
-
-	DELETE FROM 
-		[dbo].[ProjectAccess] 
-	WHERE 
-		[ProjectId] = @ProjectId
-GO
-PRINT N'Creating Procedure [dbo].[Project_Delete]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_Delete]
-	@ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    UPDATE 
-        [dbo].[Project]
-    SET
-        [Active] = 0
-    WHERE
-        [ProjectId] = @ProjectId
-GO
-PRINT N'Creating Procedure [dbo].[Project_CreateAccess]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_CreateAccess]
-    @ProjectId INT,
-    @UserId INT,
-    @ManagerAccess INT
-AS
-	SET NOCOUNT ON
-
-    INSERT INTO [dbo].[ProjectAccess]
-    (
-        [ProjectId],
-        [UserId],
-        [ManagerAccess]
-    )
-    VALUES
-    (
-        @ProjectId,
-        @UserId,
-        @ManagerAccess
-    )
-GO
-PRINT N'Creating Procedure [dbo].[Project_Create]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_Create]
-	@Name VARCHAR(50),
-    @ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    INSERT INTO [dbo].[Project]
-    (
-        [Name],
-        [ProjectId]
-    )
-    VALUES
-    (
-        @Name,
-        @ProjectId
-    )
-
-    SELECT * from [dbo].[Project] WHERE ProjectId = SCOPE_IDENTITY()
-GO
 PRINT N'Creating Procedure [dbo].[Feature_Update]...';
 
 
@@ -898,6 +730,53 @@ AS
         [Active] = @Active
     WHERE
         [FeatureId] = @FeatureId
+GO
+PRINT N'Creating Procedure [dbo].[Feature_GetById]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Feature_GetById]
+	@FeatureId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        [FeatureId],
+        [Name],
+        [ProjectId],
+        [Active]
+    FROM 
+        [dbo].[Feature]
+    WHERE 
+        [FeatureId] = @FeatureId AND 
+        [Active] = 1
+GO
+PRINT N'Creating Procedure [dbo].[Ticket_GetById]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Ticket_GetById]
+	@TicketId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        t.[TicketId],
+        t.[Summary],
+        t.[Created],
+        t.[Updated],
+        t.[Progress],
+        t.[ReporterId],
+        t.[AssigneeId], 
+        CONCAT(u.forename, ' ' ,u.surname) AS ReporterName, 
+        u.[Username] AS ReporterUsername, 
+        CONCAT(u2.forename, ' ' ,u2.surname) AS AssigneeName, 
+        u2.[Username] AS AssigneeUsername
+    FROM [dbo].[Ticket] t
+        INNER JOIN [dbo].[User] u ON u.[UserId] = t.[ReporterId]
+        INNER JOIN [dbo].[User] u2 ON u2.[UserId] = t.[AssigneeId]
+    WHERE 
+        t.[TicketId] = @TicketId
 GO
 PRINT N'Creating Procedure [dbo].[User_GetByUsername]...';
 
@@ -966,6 +845,338 @@ AS
 	WHERE
 		[IsActive] = @IsActive
 GO
+PRINT N'Creating Procedure [dbo].[Comment_GetByTicketId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_GetByTicketId]
+	@TicketId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        c.[CommentId],
+        c.[Content],
+        c.[Created],
+        c.[TicketId],
+        u.[UserId],
+        u.[Forename],
+        u.[Surname],
+        u.[Picture]
+    FROM 
+        [dbo].[Comment] c
+        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
+    WHERE 
+        c.[TicketId] = @TicketId
+GO
+PRINT N'Creating Procedure [dbo].[Comment_Create]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_Create]
+	@Content VARCHAR(255),
+    @TicketId INT,
+    @UserId INT
+AS
+	SET NOCOUNT ON
+
+    INSERT INTO [dbo].[Comment]
+    (
+	    [Content],
+        [TicketId],
+        [UserId]
+    )
+    VALUES
+    (
+    	@Content,
+        @TicketId,
+        @UserId
+    )
+
+    SELECT * from [dbo].[Comment] WHERE CommentId = SCOPE_IDENTITY()
+GO
+PRINT N'Creating Procedure [dbo].[Comment_Delete]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_Delete]
+	@CommentId INT
+AS
+	SET NOCOUNT ON
+
+	DELETE FROM 
+		[dbo].[Comment]
+	WHERE 
+		[CommentId] = @CommentId
+GO
+PRINT N'Creating Procedure [dbo].[Comment_Update]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_Update]
+    @Content VARCHAR(255),
+    @CommentId INT
+AS
+	SET NOCOUNT ON
+
+    UPDATE 
+        [dbo].[Comment]
+    SET
+        [Content] = @Content
+    WHERE
+        [CommentId] = @CommentId
+GO
+PRINT N'Creating Procedure [dbo].[Comment_GetById]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_GetById]
+	@CommentId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        c.[CommentId],
+        c.[Content],
+        c.[Created],
+        c.[TicketId],
+        u.[UserId],
+        u.[Forename],
+        u.[Surname],
+        u.[Picture]
+    FROM 
+        [dbo].[Comment] c
+        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
+    WHERE 
+        c.[CommentId] = @CommentId
+GO
+PRINT N'Creating Procedure [dbo].[Project_DeleteAccess]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_DeleteAccess]
+	@ProjectId INT
+AS
+	SET NOCOUNT ON
+
+	DELETE FROM 
+		[dbo].[ProjectAccess] 
+	WHERE 
+		[ProjectId] = @ProjectId
+GO
+PRINT N'Creating Procedure [dbo].[Project_GetByOwnerId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_GetByOwnerId]
+	@UserId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        [ProjectId],
+        [Name],
+        [Status],
+        [Active],
+        [OwnerId]
+    FROM 
+        [dbo].[Project]
+    WHERE 
+        [OwnerId] = @UserId AND 
+        [Active] = 1
+GO
+PRINT N'Creating Procedure [dbo].[Project_GetByManagerAccess]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_GetByManagerAccess]
+	@ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        p.[ProjectId],
+        p.[Name],
+        p.[Status],
+        p.[Active],
+        p.[OwnerId]
+    FROM [dbo].[Project] p
+        INNER JOIN [dbo].[ProjectAccess] pa ON pa.[ProjectId] = p.[ProjectId]
+    WHERE 
+        p.[ProjectId] = @ProjectId AND 
+        [Active] = 1 AND
+        pa.ManagerAccess = 1
+GO
+PRINT N'Creating Procedure [dbo].[Project_GetByStandardAccess]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_GetByStandardAccess]
+	@ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        p.[ProjectId],
+        p.[Name],
+        p.[Status],
+        p.[Active],
+        p.[OwnerId]
+    FROM [dbo].[Project] p
+        INNER JOIN [dbo].[ProjectAccess] pa ON pa.[ProjectId] = p.[ProjectId]
+    WHERE 
+        p.[ProjectId] = @ProjectId AND 
+        [Active] = 1 AND
+        pa.ManagerAccess = 0
+GO
+PRINT N'Creating Procedure [dbo].[Project_CreateAccess]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_CreateAccess]
+    @ProjectId INT,
+    @UserId INT,
+    @ManagerAccess INT
+AS
+	SET NOCOUNT ON
+
+    INSERT INTO [dbo].[ProjectAccess]
+    (
+        [ProjectId],
+        [UserId],
+        [ManagerAccess]
+    )
+    VALUES
+    (
+        @ProjectId,
+        @UserId,
+        @ManagerAccess
+    )
+GO
+PRINT N'Creating Procedure [dbo].[Project_Update]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_Update]
+    @Name VARCHAR(50),
+    @Status VARCHAR(20),
+    @ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    UPDATE 
+        [dbo].[Project]
+    SET
+        [Name] = @Name,
+        [Status] = @Status
+    WHERE
+        [ProjectId] = @ProjectId
+
+    SELECT * FROM [dbo].[Project] WHERE [ProjectId] = @ProjectId
+GO
+PRINT N'Creating Procedure [dbo].[Project_Delete]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_Delete]
+	@ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    UPDATE 
+        [dbo].[Project]
+    SET
+        [Active] = 0
+    WHERE
+        [ProjectId] = @ProjectId
+GO
+PRINT N'Creating Procedure [dbo].[Project_GetById]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_GetById]
+	@ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        [ProjectId],
+        [Name],
+        [Status],
+        [Active],
+        [OwnerId]
+    FROM 
+        [dbo].[Project]
+    WHERE 
+        [ProjectId] = @ProjectId AND 
+        [Active] = 1
+GO
+PRINT N'Creating Procedure [dbo].[Project_Create]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Project_Create]
+	@Name VARCHAR(50),
+    @ProjectId INT
+AS
+	SET NOCOUNT ON
+
+    INSERT INTO [dbo].[Project]
+    (
+        [Name],
+        [ProjectId]
+    )
+    VALUES
+    (
+        @Name,
+        @ProjectId
+    )
+
+    SELECT * from [dbo].[Project] WHERE ProjectId = SCOPE_IDENTITY()
+GO
+PRINT N'Creating Procedure [dbo].[User_Update]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[User_Update]
+	@UserId		as INT,
+	@Username	as NVARCHAR(15),
+	@Forename	as NVARCHAR(30),
+	@Surname	as NVARCHAR(30),
+	@Level		as INT,
+	@IsActive	as SMALLINT
+AS
+	SET NOCOUNT ON
+
+	UPDATE [User]
+		SET [Username] = @Username,
+		[Forename] = @Forename,
+		[Surname] = @Surname,
+		[Level] = @Level,
+		[IsActive] = @IsActive
+	FROM 
+		[dbo].[User]
+	WHERE
+		[UserId] = @UserId
+
+	SELECT * FROM [dbo].[User] WHERE [UserId] = @UserId
+GO
+PRINT N'Creating Procedure [dbo].[User_Delete]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[User_Delete]
+	@UserId INT
+AS
+	SET NOCOUNT ON
+
+	UPDATE [User] SET
+		[IsActive] = 0
+	FROM 
+		[dbo].[User]
+	WHERE
+		[UserId] = @UserId
+GO
 PRINT N'Creating Procedure [dbo].[User_Create]...';
 
 
@@ -993,199 +1204,8 @@ AS
 		@Username,
 		@Password
 	)
-GO
-PRINT N'Creating Procedure [dbo].[Ticket_Update]...';
 
-
-GO
-CREATE PROCEDURE [dbo].[Ticket_Update]
-    @Summary VARCHAR(50),
-    @Progress VARCHAR(20),
-    @Deadline DATETIME,
-	@FeatureId INT,
-    @TicketId INT,
-    @AssigneeId INT,
-    @Active BIT
-AS
-	SET NOCOUNT ON
-
-    UPDATE 
-        [dbo].[Ticket]
-    SET
-        [Summary] = @Summary,
-        [AssigneeId] = @AssigneeId,
-        [Progress] = @Progress,
-        [Deadline] = @Deadline,
-        [FeatureId] = @FeatureId,
-        [Updated] = GETUTCDATE()
-    WHERE
-        [TicketId] = @TicketId
-
-    SELECT * from [dbo].[Ticket] WHERE TicketId = @TicketId
-GO
-PRINT N'Creating Procedure [dbo].[Ticket_GetById]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Ticket_GetById]
-	@TicketId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        t.[TicketId],
-        t.[Summary],
-        t.[Created],
-        t.[Updated],
-        t.[Progress],
-        t.[ReporterId],
-        t.[AssigneeId], 
-        CONCAT(u.forename, ' ' ,u.surname) AS ReporterName, 
-        u.[Username] AS ReporterUsername, 
-        CONCAT(u2.forename, ' ' ,u2.surname) AS AssigneeName, 
-        u2.[Username] AS AssigneeUsername
-    FROM [dbo].[Ticket] t
-        INNER JOIN [dbo].[User] u ON u.[UserId] = t.[ReporterId]
-        INNER JOIN [dbo].[User] u2 ON u2.[UserId] = t.[AssigneeId]
-    WHERE 
-        t.[TicketId] = @TicketId
-GO
-PRINT N'Creating Procedure [dbo].[Ticket_GetByFeatureId]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Ticket_GetByFeatureId]
-	@FeatureId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        t.[TicketId],
-        t.[Summary],
-        t.[Created],
-        t.[Updated],
-        t.[Progress],
-        t.[ReporterId],
-        t.[AssigneeId], 
-        CONCAT(u.forename, ' ' ,u.surname) AS ReporterName, 
-        u.[Username] AS ReporterUsername, 
-        CONCAT(u2.forename, ' ' ,u2.surname) AS AssigneeName, 
-        u2.[Username] AS AssigneeUsername
-    FROM [dbo].[Ticket] t
-        INNER JOIN [dbo].[User] u ON u.userId = t.[ReporterId]
-        INNER JOIN [dbo].[User] u2 ON u2.userId = t.[AssigneeId]
-    WHERE 
-        t.[FeatureId] = @FeatureId
-GO
-PRINT N'Creating Procedure [dbo].[Ticket_Delete]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Ticket_Delete]
-	@TicketId INT
-AS
-	SET NOCOUNT ON
-
-    UPDATE 
-        [dbo].[Ticket]
-    SET
-        [Active] = 0
-    WHERE
-        [TicketId] = @TicketId
-GO
-PRINT N'Creating Procedure [dbo].[Ticket_Create]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Ticket_Create]
-	@Summary VARCHAR(50),
-    @FeatureId INT,
-    @ReporterId INT
-AS
-	SET NOCOUNT ON
-
-    INSERT INTO [dbo].[Ticket]
-    (
-        [Summary],
-        [FeatureId],
-        [ReporterId]
-    )
-    VALUES
-    (
-        @Summary,
-        @FeatureId,
-        @ReporterId
-    )
-
-    SELECT * from [dbo].[Ticket] WHERE TicketId = SCOPE_IDENTITY()
-GO
-PRINT N'Creating Procedure [dbo].[Project_Update]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_Update]
-    @Name VARCHAR(50),
-    @Status VARCHAR(20),
-    @ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    UPDATE 
-        [dbo].[Project]
-    SET
-        [Name] = @Name,
-        [Status] = @Status
-    WHERE
-        [ProjectId] = @ProjectId
-
-    SELECT * FROM [dbo].[Project] WHERE [ProjectId] = @ProjectId
-GO
-PRINT N'Creating Procedure [dbo].[Project_GetByStandardAccess]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Project_GetByStandardAccess]
-	@ProjectId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        p.[ProjectId],
-        p.[Name],
-        p.[Status],
-        p.[Active],
-        p.[OwnerId]
-    FROM [dbo].[Project] p
-        INNER JOIN [dbo].[ProjectAccess] pa ON pa.[ProjectId] = p.[ProjectId]
-    WHERE 
-        p.[ProjectId] = @ProjectId AND 
-        [Active] = 1 AND
-        pa.ManagerAccess = 0
-GO
-PRINT N'Creating Procedure [dbo].[User_UpdateUser]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[User_UpdateUser]
-	@UserId INT,
-	@Username VARCHAR,
-	@Forename VARCHAR,
-	@Surename VARCHAR,
-	@Level SMALLINT,
-	@IsActive SMALLINT
-AS
-	SET NOCOUNT ON
-
-	UPDATE [User]
-		SET [Username] = @Username,
-		[Forename] = @Forename,
-		[Surname] = @Surename,
-		[Level] = @Level,
-		[IsActive] = @IsActive
-	FROM 
-		[dbo].[User]
-	WHERE
-		[UserId] = @UserId
+	SELECT * FROM [dbo].[User] WHERE [UserId] = SCOPE_IDENTITY();
 GO
 DECLARE @VarDecimalSupported AS BIT;
 

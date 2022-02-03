@@ -7,7 +7,7 @@
 
     public class UserSeed : ISeed
     {
-        public User DeveloperUser = new User
+        public static User DeveloperUser = new User
         {
             UserId = 1,
             Forename = "Developer User",
@@ -18,7 +18,7 @@
             IsActive = true
         };
 
-        public User ManagerUser = new User
+        public static User ManagerUser = new User
         {
             UserId = 2,
             Forename = "Manager User",
@@ -29,7 +29,7 @@
             IsActive = true
         };
 
-        public User AdminUser = new User
+        public static User AdminUser = new User
         {
             UserId = 3,
             Forename = "Admin User",
@@ -40,7 +40,7 @@
             IsActive = true
         };
 
-        public User SuperAdminUser = new User
+        public static User SuperAdminUser = new User
         {
             UserId = 4,
             Forename = "Super Admin User",
@@ -51,7 +51,7 @@
             IsActive = true
         };
 
-        public User DisabledUser = new User
+        public static User DisabledUser = new User
         {
             UserId = 5,
             Forename = "Disabled User",
