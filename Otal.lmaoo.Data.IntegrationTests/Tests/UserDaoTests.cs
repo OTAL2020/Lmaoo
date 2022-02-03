@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Otal.lmaoo.Data.DataAccessObjects;
+using System;
 using System.IO;
 using Xunit;
 
@@ -23,9 +24,11 @@ namespace Otal.lmaoo.Data.IntegrationTests.Tests
                  reloadOnChange: true)
             .Build();
 
-            _configuration["DB_DATABASE"] = "Otal.lmaoo.Database";
-            _configuration["DB_PASSWORD"] = "IntegrationTest123!";
-            
+            _configuration["DB_SOURCE"] = Database.SOURCE;
+            _configuration["DB_PORT"] = Database.PORT;
+            _configuration["DB_DATABASE"] = Database.NAME;
+            _configuration["DB_PASSWORD"] = Database.PASSWORD;
+
             _userDao = new UserDao(_configuration);
         }
 
