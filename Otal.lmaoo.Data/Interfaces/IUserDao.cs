@@ -2,11 +2,12 @@
 {
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.Interfaces.Base;
+    using System.Collections.Generic;
 
     public interface IUserDao : IDaoBase<User>
     {
         User GetByUsername(string username);
 
-        User GetByActive(bool isActive);
+        IEnumerable<User> GetByActive(bool isActive);
     }
 }

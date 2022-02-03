@@ -1,10 +1,11 @@
 ﻿namespace Otal.lmaoo.Service.Interfaces
 {
     using Otal.lmaoo.Core.Entities;
+    using System.Collections.Generic;
 
     public interface IAdminService
     {
-        User GetByActive(bool isActive);
+        IEnumerable<User> GetByActive(bool isActive);
 
         User UpdateUser(User user);
     }

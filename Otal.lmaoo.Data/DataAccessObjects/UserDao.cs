@@ -5,6 +5,7 @@
     using Otal.lmaoo.Core.Entities;
     using Otal.lmaoo.Data.DataAccessObjects.Base;
     using Otal.lmaoo.Data.Interfaces;
+    using System.Collections.Generic;
     using System.Data;
     using System.Linq;
 
@@ -47,12 +48,12 @@
             }
         }
 
-        public User GetByActive(bool IsActive)
+        public IEnumerable<User> GetByActive(bool IsActive)
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_GetByActive]", new { Active = IsActive },
-                    commandType: CommandType.StoredProcedure).SingleOrDefault();
+                return con.Query<User>("[dbo].[User_GetByActive]", new { IsActive },
+                    commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -60,7 +61,7 @@
         {
             using (var con = NewSqlConnection)
             {
-                return con.Query<User>("[dbo].[User_UpdateUser]", new
+                return con.Query<User>("[dbo].[User_Update]", new
                 {
                     Username = user.Username,
                     Forename = user.Forename,
@@ -74,7 +75,10 @@
 
         public void Delete(int userId)
         {
-            throw new System.NotImplementedException();
+            using (var con = NewSqlConnection)
+            {
+                con.Execute("[dbo].[User_Delete]", new { userId }, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }
