@@ -107,5 +107,6 @@
     <Build Include="dbo\Stored Procedures\Comment\Comment_Delete.sql" />
     <Build Include="dbo\Stored Procedures\Comment\Comment_Create.sql" />
     <Build Include="dbo\Stored Procedures\Comment\Comment_GetByTicketId.sql" />
+    <Build Include="dbo\Stored Procedures\User\User_Delete.sql" />
   </ItemGroup>
 </Project>
