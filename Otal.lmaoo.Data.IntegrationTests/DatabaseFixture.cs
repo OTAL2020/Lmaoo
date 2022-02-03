@@ -15,29 +15,12 @@ namespace Otal.lmaoo.Data.IntegrationTests
 
         public DatabaseFixture()
         {
+            if (!DatabaseHelper.CheckDatabaseExists("Otal.lmaoo.Database"))
+            {
+                throw new Exception("Connection Successful, Database not found... Aborting Data Integration Tests");
+            }
+
             connectionString = Database.ConnectionString();
-            bool checker = false;
-            int i = 0;
-
-            while (i <= 5)
-            {
-                if (!Database.CheckDatabaseExists(connectionString, "Otal.lmaoo.Database"))
-                {
-                    Console.WriteLine($"Waiting for Database to exist... Try {i}");
-                    Thread.Sleep(5000);
-                    i++;
-                }
-                else
-                {
-                    checker = true;
-                    break;
-                }
-            }
-
-            if (i == 5 && !checker)
-            {
-                Console.WriteLine($"Database does not exist after 25 seconds, stopping integration tests. Debug -> {connectionString}");
-            }
 
             var seeds = AppDomain.CurrentDomain
                                 .GetAssemblies()
@@ -51,7 +34,7 @@ namespace Otal.lmaoo.Data.IntegrationTests
 
             foreach (ISeed seed in seeds)
             {
-                int rowseffected = Database.RunQuery(connectionString, seed.GetAllData());
+                int rowseffected = DatabaseHelper.RunQuery(seed.GetAllData());
                 Console.WriteLine($"{seed.DataType()} Added: {rowseffected}");
             }
         }
