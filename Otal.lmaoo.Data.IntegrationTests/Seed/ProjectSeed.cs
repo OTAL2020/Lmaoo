@@ -58,7 +58,7 @@
 
         public string GetAllData()
         {
-            var query = new Query("dbo.User")
+            var query = new Query("dbo.Project")
                 .AsInsert(new string[]
                 {
                     "Name", "Status", "Owner", "Active"
@@ -99,7 +99,7 @@
                         InactiveProject.Status,
                         InactiveProject.Owner,
                         InactiveProject.Active,
-                    },
+                    }
                 });
 
             var compiler = new SqlServerCompiler();
