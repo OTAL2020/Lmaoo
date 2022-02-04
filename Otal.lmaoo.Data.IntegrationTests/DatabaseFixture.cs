@@ -1,13 +1,8 @@
 namespace Otal.lmaoo.Data.IntegrationTests
 {
-    using Microsoft.Extensions.Configuration;
     using Otal.lmaoo.Data.IntegrationTests.Seed;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Threading;
-    using Xunit;
-    using Xunit.Abstractions;
 
     public class DatabaseFixture
     {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using Xunit.Abstractions;
 
 namespace Otal.lmaoo.Data.IntegrationTests
 {

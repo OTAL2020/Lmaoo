@@ -3,12 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Otal.lmaoo.Core.Entities;
 using Otal.lmaoo.Data.DataAccessObjects.Base;
 using Otal.lmaoo.Data.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Otal.lmaoo.Data.DataAccessObjects
 {

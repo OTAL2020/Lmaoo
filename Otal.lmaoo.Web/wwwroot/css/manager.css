@@ -165,7 +165,7 @@ hr {
     cursor: pointer;
 }
 
-.darkmode--activated #editProjectIcon { 
+.darkmode--activated #editProjectIcon {
     color: #fff;
     vertical-align: middle;
     cursor: pointer;

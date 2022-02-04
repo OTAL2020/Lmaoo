@@ -27,7 +27,7 @@
     padding: 12px 20px;
     margin: auto;
     display: block;
-    padding-bottom:30px; 
+    padding-bottom: 30px;
 }
 
 .form-control {
@@ -40,7 +40,7 @@
     justify-content: center;
     align-items: center;
     height: 100px;
-    padding-bottom:30px; 
+    padding-bottom: 30px;
     letter-spacing: 1px;
 }
 
@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     height: 100px;
-    padding-bottom:30px; 
+    padding-bottom: 30px;
     letter-spacing: 1px;
 }
 
@@ -59,10 +59,10 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    padding-bottom:30px; 
+    padding-bottom: 30px;
     letter-spacing: 1px;
 }
 
-.icon{ 
+.icon {
     margin-left: 10px;
 }
