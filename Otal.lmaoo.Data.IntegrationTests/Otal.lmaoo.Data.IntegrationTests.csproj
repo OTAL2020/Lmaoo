@@ -43,6 +43,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Otal.lmaoo.Database_Create.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="setupdatabase.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
