@@ -2,6 +2,8 @@
 {
     public interface ISeed
     {
+        int OrderNumber();
+
         string DataType();
 
         string GetAllData();

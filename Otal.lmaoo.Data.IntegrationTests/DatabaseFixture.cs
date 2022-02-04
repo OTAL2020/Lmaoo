@@ -30,12 +30,13 @@ namespace Otal.lmaoo.Data.IntegrationTests
                                 {
                                     return Activator.CreateInstance(x);
                                 })
-                                .Cast<ISeed>();
+                                .Cast<ISeed>()
+                                .OrderBy(x => x.OrderNumber);
 
             foreach (ISeed seed in seeds)
             {
                 int rowseffected = DatabaseHelper.RunQuery(seed.GetAllData());
-                Console.WriteLine($"{seed.DataType()} Added: {rowseffected}");
+                Console.WriteLine($"{seed.DataType} Added: {rowseffected}");
             }
         }
     }
