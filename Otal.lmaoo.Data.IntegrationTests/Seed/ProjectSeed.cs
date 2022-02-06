@@ -12,7 +12,7 @@
             ProjectId = 1,
             Name = "BacklogProject",
             Status = ProjectStatus.Backlog,
-            Owner = UserSeed.ManagerUser.UserId,
+            OwnerId = UserSeed.ManagerUser.UserId,
             Active = 1
         };
 
@@ -21,7 +21,7 @@
             ProjectId = 2,
             Name = "InDevProject",
             Status = ProjectStatus.InDev,
-            Owner = UserSeed.AdminUser.UserId,
+            OwnerId = UserSeed.AdminUser.UserId,
             Active = 1
         };
 
@@ -30,7 +30,7 @@
             ProjectId = 3,
             Name = "StandardProject",
             Status = ProjectStatus.InQa,
-            Owner = UserSeed.SuperAdminUser.UserId,
+            OwnerId = UserSeed.SuperAdminUser.UserId,
             Active = 1
         };
 
@@ -39,7 +39,7 @@
             ProjectId = 4,
             Name = "StandardProject",
             Status = ProjectStatus.Done,
-            Owner = UserSeed.DeveloperUser.UserId,
+            OwnerId = UserSeed.DeveloperUser.UserId,
             Active = 1
         };
 
@@ -48,7 +48,7 @@
             ProjectId = 5,
             Name = "InactiveProject",
             Status = ProjectStatus.InQa,
-            Owner = UserSeed.DeveloperUser.UserId,
+            OwnerId = UserSeed.DeveloperUser.UserId,
             Active = 0
         };
 
@@ -61,7 +61,7 @@
             var query = new Query("dbo.Project")
                 .AsInsert(new string[]
                 {
-                    "Name", "Status", "Owner", "Active"
+                    "Name", "Status", "OwnerId", "Active"
                 },
                 new[]
                 {
@@ -69,35 +69,35 @@
                     {
                         BacklogProject.Name,
                         BacklogProject.Status,
-                        BacklogProject.Owner,
+                        BacklogProject.OwnerId,
                         BacklogProject.Active,
                     },
                     new object[]
                     {
                         InDevProject.Name,
                         InDevProject.Status,
-                        InDevProject.Owner,
+                        InDevProject.OwnerId,
                         InDevProject.Active,
                     },
                     new object[]
                     {
                         InQaProject.Name,
                         InQaProject.Status,
-                        InQaProject.Owner,
+                        InQaProject.OwnerId,
                         InQaProject.Active,
                     },
                     new object[]
                     {
                         DoneProject.Name,
                         DoneProject.Status,
-                        DoneProject.Owner,
+                        DoneProject.OwnerId,
                         DoneProject.Active,
                     },
                     new object[]
                     {
                         InactiveProject.Name,
                         InactiveProject.Status,
-                        InactiveProject.Owner,
+                        InactiveProject.OwnerId,
                         InactiveProject.Active,
                     }
                 });
