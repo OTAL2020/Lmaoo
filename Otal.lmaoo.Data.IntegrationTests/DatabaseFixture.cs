@@ -2,20 +2,31 @@ namespace Otal.lmaoo.Data.IntegrationTests
 {
     using Otal.lmaoo.Data.IntegrationTests.Seed;
     using System;
+    using System.IO;
     using System.Linq;
+    using System.Management.Automation;
 
     public class DatabaseFixture
     {
-        public string connectionString;
-
         public DatabaseFixture()
         {
-            if (!DatabaseHelper.CheckDatabaseExists("Otal.lmaoo.Database"))
+            if (!DatabaseHelper.CheckDatabaseIsUp(Database.MasterConnectionString()))
             {
-                throw new Exception("Connection Successful, Database not found... Aborting Data Integration Tests");
+                throw new Exception($"Database Connection not successful, Aborting Data Integration Tests Debug: {Database.SOURCE} {Database.PORT} {Database.USERNAME}");
             }
 
-            connectionString = Database.ConnectionString();
+            Console.WriteLine($"Running Powershell Script");
+            var file = File.ReadAllText(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "Otal.lmaoo.Database_Create.sql");
+            //var dir = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "Otal.lmaoo.Database_Create.sql";
+            var dir = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "setupdatabase.ps1";
+            PowerShell ps = PowerShell
+                                .Create()
+                                .AddCommand(dir)
+                                .AddParameter("SQLServer", Database.SOURCE);
+                                //.AddScript(dir);
+
+            var results = ps.Invoke();
+
 
             var seeds = AppDomain.CurrentDomain
                                 .GetAssemblies()
