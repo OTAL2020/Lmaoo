@@ -1,16 +1,10 @@
-﻿$SQLServer = "db"
+﻿$SQLServer = "localhost"
 $Username = "SA"
 $Password = "IntegrationTest123!"
 $db3 = "master"
 $currentDirectory = Get-Location
 $scriptName = "Otal.lmaoo.Database_Create.sql"
 $script = "$currentDirectory\$scriptName"
-
-param(
-    [Parameter()]
-    [String]$SQLServer,
-    [String]$emotion
-)
 
 try
 {
