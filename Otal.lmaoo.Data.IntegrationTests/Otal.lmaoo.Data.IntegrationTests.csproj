@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
-    <PackageReference Include="Cake.Powershell" Version="1.0.1" />
     <PackageReference Include="dbup-core" Version="4.5.0" />
     <PackageReference Include="dbup-sqlserver" Version="4.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.1" />
