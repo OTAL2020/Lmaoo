@@ -8,6 +8,6 @@ namespace Otal.lmaoo.Core.Entities
         public string Name { get; set; }
         public ProjectStatus Status { get; set; }
         public int OwnerId { get; set; }
-        public int Active { get; set; }
+        public bool Active { get; set; }
     }
 }

@@ -19,6 +19,7 @@
         ReadyToDeploy = 10,
         MainBranchPullRequestReview = 11,
         DeploymentToMain = 12,
-        Completed = 13
+        Completed = 13,
+        Inactive = 14
     }
 }
