@@ -13,7 +13,7 @@
             Name = "BacklogProject",
             Status = ProjectStatus.Backlog,
             OwnerId = UserSeed.ManagerUser.UserId,
-            Active = 1
+            Active = true
         };
 
         public static Project InDevProject = new Project
@@ -22,7 +22,7 @@
             Name = "InDevProject",
             Status = ProjectStatus.InDev,
             OwnerId = UserSeed.AdminUser.UserId,
-            Active = 1
+            Active = true
         };
 
         public static Project InQaProject = new Project
@@ -31,7 +31,7 @@
             Name = "StandardProject",
             Status = ProjectStatus.InQa,
             OwnerId = UserSeed.SuperAdminUser.UserId,
-            Active = 1
+            Active = true
         };
 
         public static Project DoneProject = new Project
@@ -40,7 +40,7 @@
             Name = "StandardProject",
             Status = ProjectStatus.Done,
             OwnerId = UserSeed.DeveloperUser.UserId,
-            Active = 1
+            Active = true
         };
 
         public static Project InactiveProject = new Project
@@ -49,7 +49,7 @@
             Name = "InactiveProject",
             Status = ProjectStatus.InQa,
             OwnerId = UserSeed.DeveloperUser.UserId,
-            Active = 0
+            Active = false
         };
 
         public int OrderNumber() => 2;
@@ -70,35 +70,35 @@
                         BacklogProject.Name,
                         BacklogProject.Status,
                         BacklogProject.OwnerId,
-                        BacklogProject.Active,
+                        BacklogProject.Active ? 1 : 0,
                     },
                     new object[]
                     {
                         InDevProject.Name,
                         InDevProject.Status,
                         InDevProject.OwnerId,
-                        InDevProject.Active,
+                        InDevProject.Active ? 1 : 0,
                     },
                     new object[]
                     {
                         InQaProject.Name,
                         InQaProject.Status,
                         InQaProject.OwnerId,
-                        InQaProject.Active,
+                        InQaProject.Active ? 1 : 0,
                     },
                     new object[]
                     {
                         DoneProject.Name,
                         DoneProject.Status,
                         DoneProject.OwnerId,
-                        DoneProject.Active,
+                        DoneProject.Active ? 1 : 0,
                     },
                     new object[]
                     {
                         InactiveProject.Name,
                         InactiveProject.Status,
                         InactiveProject.OwnerId,
-                        InactiveProject.Active,
+                        InactiveProject.Active ? 1 : 0,
                     }
                 });
 

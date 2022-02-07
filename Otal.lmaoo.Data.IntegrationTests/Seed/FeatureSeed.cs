@@ -22,9 +22,17 @@
             Active = 1
         };
 
-        public static Feature InactiveFeature = new Feature
+        public static Feature InQaFeature = new Feature
         {
             FeatureId = 3,
+            Name = "InQaFeature",
+            ProjectId = ProjectSeed.InQaProject.ProjectId,
+            Active = 1
+        };
+
+        public static Feature InactiveFeature = new Feature
+        {
+            FeatureId = 4,
             Name = "BackLogFeature",
             ProjectId = ProjectSeed.InactiveProject.ProjectId,
             Active = 0
@@ -54,6 +62,12 @@
                         InDevFeature.Name,
                         InDevFeature.ProjectId,
                         InDevFeature.Active,
+                    },
+                    new object[]
+                    {
+                        InQaFeature.Name,
+                        InQaFeature.ProjectId,
+                        InQaFeature.Active,
                     },
                     new object[]
                     {
