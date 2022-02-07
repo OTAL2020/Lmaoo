@@ -6,7 +6,7 @@
   [ReporterId]	INT							DEFAULT		NULL,
   [AssigneeId]	INT							DEFAULT		NULL,
   [Created]		DATETIME		NOT NULL	DEFAULT		CURRENT_TIMESTAMP,
-  [Updated]		DATETIME		NOT NULL,
+  [Updated]		DATETIME		NULL,
   [Progress]	VARCHAR(20)		NOT NULL	DEFAULT		'Open',
   [Deadline]	DATETIME		NULL,
   [Active]		BIT				NOT NULL	DEFAULT		1
