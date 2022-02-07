@@ -11,7 +11,7 @@ namespace Otal.lmaoo.Core.Entities
         public int ReporterId { get; set; }
         public string ReporterName { get; set; }
         public string ReporterUsername { get; set; }
-        public int AssigneeId { get; set; }
+        public int? AssigneeId { get; set; }
         public string AssigneeName { get; set; }
         public string AssigneeUsername { get; set; }
         public DateTime Created { get; set; }

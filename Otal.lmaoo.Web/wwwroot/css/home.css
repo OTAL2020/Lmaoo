@@ -1,37 +1,37 @@
-#devInfo{
+#devInfo {
     margin: 50px auto 0px auto;
 }
 
-.welcomeMessage{
+.welcomeMessage {
     margin-left: 100px;
     margin-top: 50px;
 }
 
-#homePageCards{
+#homePageCards {
     margin: 10px, auto;
 }
 
-#homePageTickets{
+#homePageTickets {
     margin-top: 50px;
     margin-left: 100px;
     width: 1200px;
 }
 
-.homeProject-list{
-    float : left;
+.homeProject-list {
+    float: left;
     width: 350px;
 }
 
-.ticket-deadline{
+.ticket-deadline {
     float: right;
     width: 600px;
 }
 
-.homeTable{
+.homeTable {
     padding: 0px 17px;
 }
 
-.ticketTable{
+.ticketTable {
     padding: 0px 8px;
 }
 

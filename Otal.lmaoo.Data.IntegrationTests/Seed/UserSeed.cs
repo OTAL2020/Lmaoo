@@ -62,6 +62,8 @@
             IsActive = false
         };
 
+        public int OrderNumber() => 1;
+
         public string DataType() => "User";
 
         public string GetAllData()

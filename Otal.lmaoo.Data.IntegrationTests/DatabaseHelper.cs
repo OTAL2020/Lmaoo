@@ -1,20 +1,21 @@
-﻿using System;
-using System.Data.SqlClient;
-using Xunit.Abstractions;
-
-namespace Otal.lmaoo.Data.IntegrationTests
+﻿namespace Otal.lmaoo.Data.IntegrationTests
 {
+    using System.Data.SqlClient;
+
     public static class DatabaseHelper
     {
-        public static bool CheckDatabaseExists(string databaseName)
+        public static bool CheckDatabaseIsUp(string connectionString)
         {
-            using (var connection = new SqlConnection(Database.MasterConnectionString()))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
+                try
                 {
-                    return (command.ExecuteScalar() != DBNull.Value);
+                    connection.Open();
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
                 }
             }
         }

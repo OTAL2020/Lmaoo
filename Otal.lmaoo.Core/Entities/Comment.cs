@@ -9,8 +9,8 @@ namespace Otal.lmaoo.Core.Entities
         public DateTime Created { get; set; }
         public int TicketId { get; set; }
         public int UserId { get; set; }
-        public string Forename { get; set; }
-        public string Surname { get; set; }
-        public string Picture { get; set; }
+        public string UserForename { get; set; }
+        public string UserSurname { get; set; }
+        public string UserPicture { get; set; }
     }
 }

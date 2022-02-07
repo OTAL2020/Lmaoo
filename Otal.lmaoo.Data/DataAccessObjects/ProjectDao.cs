@@ -26,7 +26,7 @@
                 {
                     Name = project.Name,
                     Status = project.Status,
-                    Owner = project.Owner
+                    Owner = project.OwnerId
                 },
                     commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
