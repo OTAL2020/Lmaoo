@@ -15,7 +15,6 @@
             RuleFor(x => x.Password).Must((x, confirmEmailAddress) => x.ConfirmPassword.Equals(confirmEmailAddress, StringComparison.OrdinalIgnoreCase))
                                     .WithMessage("Password and Confirmation Password must match");
             RuleFor(x => x.ConfirmPassword).NotEmpty().WithMessage("Confirm Password is required");
-
         }
     }
 }
