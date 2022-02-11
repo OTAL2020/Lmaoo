@@ -29,8 +29,8 @@ services:
           - /bin/bash
           - -c
           - |
-            dotnet build /src/Otal.lmaoo.Data.IntegrationTests
-            dotnet test /src/Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Data.IntegrationTests.csproj
+            dotnet build /src/Otal.lmaoo.Data.IntegrationTests --no-restore
+            dotnet test /src/Otal.lmaoo.Data.IntegrationTests/Otal.lmaoo.Data.IntegrationTests.csproj --no-build --verbosity normal
         depends_on:
             - db
         links:
