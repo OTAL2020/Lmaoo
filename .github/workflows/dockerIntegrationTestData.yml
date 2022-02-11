@@ -8,5 +8,6 @@ jobs:
   build:
     runs-on: lmaoodev
     steps:
+    - uses: actions/checkout@v2
     - name: Run container
       run: docker-compose -f docker-compose-Integration.yml
