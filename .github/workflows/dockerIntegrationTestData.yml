@@ -10,7 +10,7 @@ jobs:
     steps:
     - run: whoami
     - uses: actions/checkout@v2
-    - run: chown pi . -r
-    - run: chgrp pi . -r
+    - run: chown pi . -R
+    - run: chgrp pi . -R
     - name: Run container
       run: docker-compose -f docker-compose-Integration.yml up
