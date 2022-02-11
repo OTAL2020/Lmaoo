@@ -9,7 +9,5 @@ jobs:
     runs-on: lmaoodev
     steps:
     - uses: actions/checkout@v2
-    - run: | 
-        sudo chown pi -R ./
     - name: Run container
       run: docker-compose -f docker-compose-Integration.yml up
