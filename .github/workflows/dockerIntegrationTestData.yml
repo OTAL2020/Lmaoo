@@ -1,0 +1,12 @@
+name: Integration Test using Docker Compose
+
+on:
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: lmaoodev
+    steps:
+    - name: Run container
+      run: docker-compose -f docker-compose-Integration.yml
