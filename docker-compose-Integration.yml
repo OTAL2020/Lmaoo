@@ -3,6 +3,7 @@ version: '3.3'
 services:
     db:
         image: "mcr.microsoft.com/azure-sql-edge:latest"
+        user: ${CURRENT_UID}
         environment:
             SA_PASSWORD: "IntegrationTest123!"
             ACCEPT_EULA: "Y"
@@ -20,6 +21,7 @@ services:
 
     test:
         image: mcr.microsoft.com/dotnet/sdk:6.0
+        user: ${CURRENT_UID}
         volumes:
             - ./:/src
         environment:
