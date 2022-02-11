@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: lmaoodev
     steps:
+    - name: Gain Permissions
+    - run: chown pi -R ./*
     - uses: actions/checkout@v2
     - name: Run container
       run: docker-compose -f docker-compose-Integration.yml up
