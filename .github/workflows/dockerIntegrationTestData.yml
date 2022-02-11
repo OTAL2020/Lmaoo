@@ -12,5 +12,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run container
       run: docker-compose -f docker-compose-Integration.yml up
-    - run: chown pi ./* -R
-    - run: chgrp pi ./* -R
+    - run: ls
