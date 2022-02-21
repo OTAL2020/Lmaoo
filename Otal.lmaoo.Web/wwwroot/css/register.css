@@ -1,26 +1,41 @@
 ﻿#otal_logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+    width: 100%;
 }
 
-.header {
+h2.register-header {
     text-align: center;
-    margin-top: 60px;
-    margin-bottom: 40px;
+    font-size:40px;
 }
 
-.register-header {
+div.form-group {
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
 }
 
-.register:hover {
-    text-decoration: none;
-}
-
-.container > .card {
+#register_button {
+    background-color: #4CAF50; /* Green */
     border: none;
+    color: white;
+    padding: 8px 240px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 10px;
+    cursor: pointer;
 }
+
+.form-control {
+    width: 550px;
+    font-size: 20px;
+    margin: 10px 10px;
+}
+
+#already_registered {
+    font-size: 20px;
+}
+
+#sign_up {
+    font-weight: bold;
+}
+
+
