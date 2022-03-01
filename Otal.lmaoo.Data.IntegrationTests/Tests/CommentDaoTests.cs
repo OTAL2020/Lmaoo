@@ -48,9 +48,9 @@
             Assert.Equal(newComment.Content, actualComment.Content);
             Assert.Equal(newComment.TicketId, actualComment.TicketId);
             Assert.Equal(newComment.UserId, actualComment.UserId);
-            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.UserForename);
-            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.UserSurname);
-            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.UserPicture);
+            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.Forename);
+            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.Surname);
+            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.Picture);
         }
 
         [Fact]
@@ -61,9 +61,9 @@
             Assert.Equal(CommentSeed.BacklogComment.Content, actualComment.Content);
             Assert.Equal(CommentSeed.BacklogComment.TicketId, actualComment.TicketId);
             Assert.Equal(CommentSeed.BacklogComment.UserId, actualComment.UserId);
-            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.UserForename);
-            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.UserSurname);
-            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.UserPicture);
+            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.Forename);
+            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.Surname);
+            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.Picture);
         }
 
         [Fact]
@@ -74,9 +74,9 @@
             Assert.Equal(CommentSeed.BacklogComment.Content, actualComment.Content);
             Assert.Equal(CommentSeed.BacklogComment.TicketId, actualComment.TicketId);
             Assert.Equal(CommentSeed.BacklogComment.UserId, actualComment.UserId);
-            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.UserForename);
-            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.UserSurname);
-            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.UserPicture);
+            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.Forename);
+            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.Surname);
+            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.Picture);
         }
 
         [Fact]
@@ -95,9 +95,9 @@
             Assert.Equal(updateComment.Content, actualComment.Content);
             Assert.Equal(updateComment.TicketId, actualComment.TicketId);
             Assert.Equal(updateComment.UserId, actualComment.UserId);
-            Assert.Equal(UserSeed.DeveloperUser.Forename, actualComment.UserForename);
-            Assert.Equal(UserSeed.DeveloperUser.Surname, actualComment.UserSurname);
-            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.UserPicture);
+            Assert.Equal(UserSeed.ManagerUser.Forename, actualComment.Forename);
+            Assert.Equal(UserSeed.ManagerUser.Surname, actualComment.Surname);
+            Assert.Equal(UserSeed.DEFAULT_PICTURE_URL, actualComment.Picture);
         }
 
         [Fact]
