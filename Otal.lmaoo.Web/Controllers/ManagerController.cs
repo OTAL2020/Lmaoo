@@ -1,13 +1,13 @@
 ﻿namespace Otal.lmaoo.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    public class ManagerController : BaseController
+    public class ProjectController : BaseController
     {
-        public ManagerController()
-        {
-        }
 
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

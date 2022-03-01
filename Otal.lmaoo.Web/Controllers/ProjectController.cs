@@ -2,7 +2,7 @@
 
 namespace Otal.lmaoo.Web.Controllers
 {
-    public class ProjectController : BaseController
+    public class FeatureController : BaseController
     {
         public IActionResult Index()
         {
