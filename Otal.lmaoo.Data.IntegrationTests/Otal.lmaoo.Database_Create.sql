@@ -508,7 +508,7 @@ ALTER TABLE [dbo].[Comment]
 GO
 PRINT N'Creating Foreign Key [dbo].[FK_Comment_UserId]...';
 
-    
+
 GO
 ALTER TABLE [dbo].[Comment]
     ADD CONSTRAINT [FK_Comment_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId]);
@@ -614,47 +614,6 @@ AS
 
     SELECT * from [dbo].[Feature] WHERE FeatureId = SCOPE_IDENTITY()
 GO
-PRINT N'Creating Procedure [dbo].[Comment_Update]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_Update]
-    @Content VARCHAR(255),
-    @CommentId INT
-AS
-	SET NOCOUNT ON
-
-    UPDATE 
-        [dbo].[Comment]
-    SET
-        [Content] = @Content
-    WHERE
-        [CommentId] = @CommentId
-GO
-PRINT N'Creating Procedure [dbo].[Comment_GetByTicketId]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_GetByTicketId]
-	@TicketId INT
-AS
-	SET NOCOUNT ON
-
-    SELECT 
-        c.[CommentId],
-        c.[Content],
-        c.[Created],
-        c.[TicketId],
-        u.[UserId],
-        u.[Forename],
-        u.[Surname],
-        u.[Picture]
-    FROM 
-        [dbo].[Comment] c
-        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
-    WHERE 
-        c.[TicketId] = @TicketId
-GO
 PRINT N'Creating Procedure [dbo].[Comment_GetById]...';
 
 
@@ -692,32 +651,6 @@ AS
 		[dbo].[Comment]
 	WHERE 
 		[CommentId] = @CommentId
-GO
-PRINT N'Creating Procedure [dbo].[Comment_Create]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Comment_Create]
-	@Content VARCHAR(255),
-    @TicketId INT,
-    @UserId INT
-AS
-	SET NOCOUNT ON
-
-    INSERT INTO [dbo].[Comment]
-    (
-	    [Content],
-        [TicketId],
-        [UserId]
-    )
-    VALUES
-    (
-    	@Content,
-        @TicketId,
-        @UserId
-    )
-
-    SELECT * from [dbo].[Comment] WHERE CommentId = SCOPE_IDENTITY()
 GO
 PRINT N'Creating Procedure [dbo].[Project_GetByOwnerId]...';
 
@@ -1188,6 +1121,101 @@ AS
 		[dbo].[User]
 	WHERE
 		[Username] = @Username
+GO
+PRINT N'Creating Procedure [dbo].[Comment_GetByTicketId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_GetByTicketId]
+	@TicketId INT
+AS
+	SET NOCOUNT ON
+
+    SELECT 
+        c.[CommentId],
+        c.[Content],
+        c.[Created],
+        c.[TicketId],
+        u.[UserId],
+        u.[Forename],
+        u.[Surname],
+        u.[Picture]
+    FROM 
+        [dbo].[Comment] c
+        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
+    WHERE 
+        c.[TicketId] = @TicketId
+GO
+PRINT N'Creating Procedure [dbo].[Comment_Update]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_Update]
+    @Content VARCHAR(255),
+    @CommentId INT
+AS
+	SET NOCOUNT ON
+
+    UPDATE 
+        [dbo].[Comment]
+    SET
+        [Content] = @Content
+    WHERE
+        [CommentId] = @CommentId
+
+    SELECT 
+        c.[CommentId],
+        c.[Content],
+        c.[Created],
+        c.[TicketId],
+        u.[UserId],
+        u.[Forename],
+        u.[Surname],
+        u.[Picture]
+    FROM 
+        [dbo].[Comment] c
+        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
+    WHERE 
+        c.[CommentId] = @CommentId
+GO
+PRINT N'Creating Procedure [dbo].[Comment_Create]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Comment_Create]
+	@Content VARCHAR(255),
+    @TicketId INT,
+    @UserId INT
+AS
+	SET NOCOUNT ON
+
+    INSERT INTO [dbo].[Comment]
+    (
+	    [Content],
+        [TicketId],
+        [UserId]
+    )
+    VALUES
+    (
+    	@Content,
+        @TicketId,
+        @UserId
+    )
+
+    SELECT 
+        c.[CommentId],
+        c.[Content],
+        c.[Created],
+        c.[TicketId],
+        u.[UserId],
+        u.[Forename],
+        u.[Surname],
+        u.[Picture]
+    FROM 
+        [dbo].[Comment] c
+        INNER JOIN [dbo].[User] u ON u.[UserId] = c.[UserId] 
+    WHERE 
+        c.[CommentId] = SCOPE_IDENTITY()
 GO
 DECLARE @VarDecimalSupported AS BIT;
 

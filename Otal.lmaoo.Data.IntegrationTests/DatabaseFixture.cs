@@ -4,10 +4,18 @@ namespace Otal.lmaoo.Data.IntegrationTests
     using System;
     using System.Linq;
 
-    public class DatabaseFixture
+    public class DatabaseFixture : IDisposable
     {
+        private static int num = 0;
+
         public DatabaseFixture()
         {
+            if (num > 0)
+            {
+                // Only allow Fixture to run once
+                return;
+            }
+            
             if (!DatabaseHelper.CheckDatabaseIsUp(Database.MasterConnectionString()))
             {
                 throw new Exception($"Database Connection not successful, Aborting Data Integration Tests Debug: {Database.SOURCE} {Database.PORT} {Database.USERNAME}");
@@ -29,6 +37,12 @@ namespace Otal.lmaoo.Data.IntegrationTests
                 int rowseffected = DatabaseHelper.RunQuery(seed.GetAllData());
                 Console.WriteLine($"{seed.DataType()} Added: {rowseffected}");
             }
+
+            num++;
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

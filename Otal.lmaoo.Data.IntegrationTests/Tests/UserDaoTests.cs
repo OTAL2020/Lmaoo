@@ -1,14 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using Otal.lmaoo.Core.Entities;
-using Otal.lmaoo.Core.Enums;
-using Otal.lmaoo.Data.DataAccessObjects;
-using Otal.lmaoo.Data.IntegrationTests.Seed;
-using System.IO;
-using Xunit;
-
-namespace Otal.lmaoo.Data.IntegrationTests.Tests
+﻿namespace Otal.lmaoo.Data.IntegrationTests.Tests
 {
-    public class UserDaoTests : IClassFixture<DatabaseFixture>
+    using Microsoft.Extensions.Configuration;
+    using Otal.lmaoo.Core.Entities;
+    using Otal.lmaoo.Core.Enums;
+    using Otal.lmaoo.Data.DataAccessObjects;
+    using Otal.lmaoo.Data.IntegrationTests.Seed;
+    using System.IO;
+    using Xunit;
+
+    [Collection("Database Collection")]
+    public class UserDaoTests
     {
         private readonly DatabaseFixture _databaseFixture;
         private readonly IConfiguration _configuration;
@@ -16,7 +17,7 @@ namespace Otal.lmaoo.Data.IntegrationTests.Tests
 
         public UserDaoTests(DatabaseFixture fixture)
         {
-            _databaseFixture = fixture;
+            this._databaseFixture = fixture;
 
             _configuration = new ConfigurationBuilder()
            .SetBasePath(Directory.GetCurrentDirectory())
