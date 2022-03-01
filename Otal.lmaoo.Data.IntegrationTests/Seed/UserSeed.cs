@@ -7,6 +7,8 @@
 
     public class UserSeed : ISeed
     {
+        public const string DEFAULT_PICTURE_URL = "~/img/avatar.jpg";
+
         public static User DeveloperUser = new User
         {
             UserId = 1,
