@@ -7,7 +7,9 @@
     using System.IO;
     using System.Linq;
     using Xunit;
-    public class CommentDaoTests : IClassFixture<DatabaseFixture>
+
+    [Collection("Database Collection")]
+    public class CommentDaoTests
     {
         private readonly DatabaseFixture _databaseFixture;
         private readonly IConfiguration _configuration;
@@ -15,7 +17,7 @@
 
         public CommentDaoTests(DatabaseFixture fixture)
         {
-            _databaseFixture = fixture;
+            this._databaseFixture = fixture;
 
             _configuration = new ConfigurationBuilder()
            .SetBasePath(Directory.GetCurrentDirectory())
