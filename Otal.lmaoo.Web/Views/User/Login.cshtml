@@ -2,38 +2,38 @@
 
 <link rel="stylesheet" href="~/css/login.css" />
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-    <div class="container">
-        <div class="card">
-            <div class="row no-gutters">
-                <div class="col-md-6">
+ <div class = "container">
+        <div class="columns is-vcentered">
+                <div class="column">
                     <img id="otal_logo" src="~/img/otal_light.png">
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="column">
                     <div class="card-body">
-                        <h2 class="header">Member login</h2>
-                        <form method='post' asp-action="login">
-                            <input type="hidden" asp-for="ReturnUrl" />
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" asp-for="Username" placeholder="Username" autofocus>
-                                <span asp-validation-for="Username"></span>
+                        <h2 class="is-size-1 has-text-centered has-text-weight-bold">Member login</h2>
+                        <form class = "rows" method='post' asp-action="login">
+                            <input type="hidden" asp-for="ReturnUrl" /> 
+                            <div class="field">
+                                <label class ="label">Username</label>
+                                <div class ="control">
+                                    <input type="text" class="input" asp-for="Username" placeholder="Username" autofocus>
+                                    <span asp-validation-for="Username"></span>
+                                </div>
                             </div>
-
-                            <div class="form-group mb-4">
-                                <input type="password" class="form-control" asp-for="Password" placeholder="Password">
-                                <span asp-validation-for="Password"></span>
+                            <div class ="field">
+                                <label class ="label">Password</label>
+                                <div class="control">
+                                    <input type="password" class="input" asp-for="Password" placeholder="Password">
+                                    <span asp-validation-for="Password"></span>
+                                </div>
                             </div>
-
-                            <button type="submit" class="btn btn-success btn-block">Login</button>
-
-                            <div class="form-group mt-3">
-                                <a asp-action="Register">Not Registered? Click here!</a>
+                            <button type="submit" class="button is-medium is-fullwidth is-success">Login</button>
+                            <div class="has-text-centered">
+                            <a class="is-size-4"  asp-action="Register">Not Registered? Click here</a>
                             </div>
-                        </form>
-                        <!-- <a href="/github/authorize/login" class="github"><i class="fab fa-github"></i> Sign in with Github</a> -->
+                            <!-- <a href="/github/authorize/login" class="github"><i class="fa-brands fa-github"></i> Sign in with Github</a> -->
+                        </form>                       
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </main>
