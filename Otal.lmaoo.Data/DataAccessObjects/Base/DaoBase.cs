@@ -16,9 +16,9 @@
         {
             get
             {
-                var connectionString = string.Format("Data Source={0},{1};Database={2};User Id=sa;Password={3};",
+                var connectionString = string.Format("Data Source={0},{1};Database={2};User Id=sa;Password={3}",
                                                       _configuration["DB_SOURCE"],
-                                                      _configuration["DB_PORT"],
+                                                      "1433",
                                                       _configuration["DB_DATABASE"],
                                                       _configuration["DB_PASSWORD"]);
 

@@ -14,7 +14,9 @@ namespace Otal.lmaoo.Core.Extensions
             string surname = claimsIdentity?.FindFirst(ClaimTypes.Surname).Value;
 
             if (string.IsNullOrEmpty(forename) || string.IsNullOrEmpty(surname))
-                return String.Empty;
+            {
+                return string.Empty;
+            }
 
             return $"{forename} {surname}";
         }
@@ -23,6 +25,12 @@ namespace Otal.lmaoo.Core.Extensions
         {
             ClaimsIdentity claimsIdentity = identity as ClaimsIdentity;
             var role = claimsIdentity?.FindFirst(ClaimTypes.Role).Value;
+
+            if (role == null)
+            {
+                return 0;
+            }
+
             return (int)role.ParseEnum<UserRole>();
         }
     }

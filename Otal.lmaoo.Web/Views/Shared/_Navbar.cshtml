@@ -4,7 +4,7 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="">OTAL Lmaoo</a>
+    <a class="navbar-item" href="#">OTAL Lmaoo</a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -15,17 +15,19 @@
 
   <div class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
+      <a class="navbar-item" href="">Home</a>
+
+      @if (User.Identity.IsAuthenticated && User.Identity.GetRoleAsInteger() > 1)
+      {
+        <a class='navbar-item' asp-controller="Project" asp-action="Index">Project</a>
+      }
+
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Account
-        </a>
+        <a class="navbar-link">Account</a>
 
         <div class="navbar-dropdown">
             @if (!User.Identity.IsAuthenticated) 
@@ -35,17 +37,13 @@
             }
             else
             {
-                if (User.Identity.GetRoleAsInteger() > 1)
-                {
-                    <a class='navbar-item' asp-controller="Manager" asp-action="Index">Manager</a>
-                }
-
                 if (User.Identity.GetRoleAsInteger() > 2)
                 {
                     <a class='navbar-item' asp-controller="Admin" asp-action="Index">Admin</a>
                 }
-                    <a class="navbar-item" asp-controller="User" asp-action="Profile">Edit Account</a>
-                    <a class="navbar-item" asp-controller="User" asp-action="Logout">Logout</a>
+
+                <a class="navbar-item" asp-controller="User" asp-action="Profile">Edit Account</a>
+                <a class="navbar-item" asp-controller="User" asp-action="Logout">Logout</a>
             }
         </div>
       </div>
