@@ -10,6 +10,7 @@
         {
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<IAdminService, AdminService>();
+            service.AddScoped<ICommentService, CommentService>();
         }
     }
 }
