@@ -14,22 +14,22 @@
             _commentDao = commentDao;
         }
 
-        public Comment CreateComment(Comment comment)
+        public Comment Create(Comment comment)
         {
              return _commentDao.Create(comment);
         }
 
-        public Comment GetCommentById(int commentId)
+        public Comment GetById(int commentId)
         {
             return _commentDao.GetById(commentId);
         }
 
-        public IEnumerable<Comment> GetCommentByTicketId(int TicketId)
+        public IEnumerable<Comment> GetByTicketId(int TicketId)
         {
             return _commentDao.GetByTicketId(TicketId);
         }
 
-        public Comment UpdateComment(Comment comment)
+        public Comment Update(Comment comment)
         {
             return _commentDao.Update(comment);
         }

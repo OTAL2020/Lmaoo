@@ -5,8 +5,8 @@
 
     public interface ICommentService
     {
-        Comment CreateComment(Comment comment);
-        Comment GetCommentById(int commentId);
-        IEnumerable <Comment> GetCommentByTicketId(int ticketId);
+        Comment Create(Comment comment);
+        Comment GetById(int commentId);
+        IEnumerable<Comment> GetByTicketId(int ticketId);
     }
 }
